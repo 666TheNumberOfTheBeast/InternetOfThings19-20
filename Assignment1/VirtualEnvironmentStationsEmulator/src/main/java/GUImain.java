@@ -1,3 +1,6 @@
+import aws_iot.MQTTclient;
+import smart_scroller.SmartScroller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -78,8 +81,11 @@ public class GUImain extends JFrame {
 
                     textArea.setText("");
 
+                    MQTTclient mqttClient = new MQTTclient();
+                    mqttClient.initMQTTclient();
+
                     String uniqueID = UUID.randomUUID().toString();
-                    ves = new VirtualEnvironmentStation(uniqueID, textArea);
+                    ves = new VirtualEnvironmentStation(uniqueID, textArea, mqttClient);
                     System.out.println("New Virtual Environment Station started with id = " + uniqueID);
                     Thread t = new Thread(ves);
                     t.start();

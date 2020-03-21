@@ -1,32 +1,37 @@
+import aws_iot.MQTTclient;
+
 import javax.swing.JTextArea;
 import java.util.Objects;
 
 public class VirtualEnvironmentStation implements Runnable {
     // Constants
-    private double MIN_VALUE_TEMPERATURE = -50;
-    private double MAX_VALUE_TEMPERATURE = -50;
-    private double MIN_VALUE_HUMIDITY = 0;
-    private double MAX_VALUE_HUMIDITY = 100;
-    private double MIN_VALUE_WIND_DIRECTION = 0;
-    private double MAX_VALUE_WIND_DIRECTION = 360;
-    private double MIN_VALUE_WIND_INTENSITY = 0;
-    private double MAX_VALUE_WIND_INTENSITY = 100;
-    private double MIN_VALUE_RAIN_HEIGHT = 0;
-    private double MAX_VALUE_RAIN_HEIGHT = 50;
+    private final double MIN_VALUE_TEMPERATURE = -50;
+    private final double MAX_VALUE_TEMPERATURE = -50;
+    private final double MIN_VALUE_HUMIDITY = 0;
+    private final double MAX_VALUE_HUMIDITY = 100;
+    private final double MIN_VALUE_WIND_DIRECTION = 0;
+    private final double MAX_VALUE_WIND_DIRECTION = 360;
+    private final double MIN_VALUE_WIND_INTENSITY = 0;
+    private final double MAX_VALUE_WIND_INTENSITY = 100;
+    private final double MIN_VALUE_RAIN_HEIGHT = 0;
+    private final double MAX_VALUE_RAIN_HEIGHT = 50;
 
     // Variables
     private String id;
     private double temperature, humidity, windDirection, windIntensity, rainHeight;
     private boolean fired, suspended;
     private JTextArea textArea;
+    private MQTTclient mqttClient;
 
-    public VirtualEnvironmentStation(String id) {
+    public VirtualEnvironmentStation(String id, MQTTclient mqttClient) {
         this.id = id;
+        this.mqttClient = mqttClient;
     }
 
-    public VirtualEnvironmentStation(String id, JTextArea textArea) {
+    public VirtualEnvironmentStation(String id, JTextArea textArea, MQTTclient mqttClient) {
         this.id = id;
         this.textArea = textArea;
+        this.mqttClient = mqttClient;
     }
 
     // Return a random value N such that a <= N <= b
@@ -106,6 +111,13 @@ public class VirtualEnvironmentStation implements Runnable {
                 textArea.append(separator + this.toString() + separator);
             else
                 System.out.println(separator + this.toString() + separator);
+
+            mqttClient.publish("sensor/temperature/station"+id, String.valueOf(temperature), false);
+            mqttClient.publish("sensor/humidity/station"+id, String.valueOf(humidity), false);
+            mqttClient.publish("sensor/windDirection/station"+id, String.valueOf(windDirection), false);
+            mqttClient.publish("sensor/windIntensity/station"+id, String.valueOf(windIntensity), false);
+            mqttClient.publish("sensor/rainHeight/station"+id, String.valueOf(rainHeight), false);
+
             try{
                 Thread.sleep(5000);
             } catch (Exception e) {
