@@ -7,7 +7,7 @@
 
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *
 * ======================================================= */
 body {
@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6, figure {
     bottom: 0;
     left: 0;
     right: 0;
-    opacity: 0.95;
+    /*opacity: 0.95;
     background: #499bea;
     background: -moz-linear-gradient(-45deg, #499bea 0%, #798eea 100%);
     background: -webkit-gradient(left top, right bottom, color-stop(0%, #499bea), color-stop(100%, #798eea));
@@ -294,6 +294,20 @@ h1, h2, h3, h4, h5, h6, figure {
     background: -o-linear-gradient(315deg, #499bea 0%, #798eea 100%);
     background: linear-gradient(135deg, #499bea 0%, #798eea 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#798eea', GradientType=1 );
+    */
+
+    opacity: 0.95;
+    background: #303133;
+    background: -moz-linear-gradient(-45deg, #000 0%, #303133 100%);
+    background: -webkit-gradient(top, bottom, color-stop(0%, #000), color-stop(100%, #303133));
+    background: -webkit-linear-gradient(-45deg, #000 0%, #303133 100%);
+    background: -o-linear-gradient(-45deg, #000 0%, #303133 100%);
+    background: -ms-linear-gradient(-45deg, #000 0%, #303133 100%);
+    background: -webkit-linear-gradient(315deg, #000 0%, #303133 100%);
+    background: -o-linear-gradient(315deg, #000 0%, #303133 100%);
+    background: linear-gradient(135deg, #000 0%, #303133 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#303133', GradientType=1 );
+/**/
     z-index: 1; }
   .video-hero .display-t {
     display: table;
@@ -1484,3 +1498,15 @@ input[type="text"] {
 
 .js .animate-box {
   opacity: 0; }
+
+/*My additions*/
+
+/*Center an element Vertically AND Horizontally */
+.my-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
