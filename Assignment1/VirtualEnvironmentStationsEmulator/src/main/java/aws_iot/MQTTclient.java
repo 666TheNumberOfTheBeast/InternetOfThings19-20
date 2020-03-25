@@ -11,25 +11,38 @@ import java.util.Objects;
 
 public class MQTTclient {
     private AWSIotMqttClient client;
+    private String clientId;  // the client ID uniquely identify a MQTT connection. Two clients with the same client ID are not allowed to be connected concurrently to a same endpoint.
 
-    public MQTTclient() {
 
+    public MQTTclient(String id) {
+        this.clientId = id;
     }
 
     public void initMQTTclient() {
         String path = "../keys/";
+        Map<String, String> values = Util.readFromCSVFile(path + "key.txt");
+
+        String clientEndpoint = values.get("clientEndpoint");
 
         // MSQTT over WebSocket
-        // With AWS Educate I cannot create credentials for IAM users
-        /*String clientEndpoint = "<prefix>.iot.<region>.amazonaws.com";       // replace <prefix> and <region> with your own
-        String clientId = "<unique client id>";                              // replace with your own client ID. Use unique client IDs for concurrent connections.
-        String awsAccessKeyId = "", awsSecretAccessKey = "", sessionToken = "";
+        // With AWS Educate these credentials are updated each 3 hours
+        String awsAccessKeyId = "<your-access-key>";
+        String awsSecretAccessKey = "<your-secret-key>";
+        String sessionToken = "<your-token>";
         // AWS IAM credentials could be retrieved from AWS Cognito, STS, or other secure sources
-        client = new AWSIotMqttClient(clientEndpoint, clientId, awsAccessKeyId, awsSecretAccessKey, sessionToken);*/
+        client = new AWSIotMqttClient(clientEndpoint, clientId, awsAccessKeyId, awsSecretAccessKey, sessionToken);//*/
 
-        // MSQTT over TLS 1.2
-        Map<String, String> values = Util.readFromCSVFile(path + "key.txt");
-        String keyStoreFile = values.get("filename");
+
+        // MSQTT over TLS 1.2 (generating KeyStore from certificate and private key)
+        /*String certificateFile = path + values.get("certificateFile");             // X.509 based certificate file
+        String privateKeyFile = path + values.get("privateKeyFile");              // PKCS#1 or PKCS#8 PEM encoded private key file
+
+        Util.KeyStorePasswordPair pair = Util.getKeyStorePasswordPair(certificateFile, privateKeyFile);
+        client = new AWSIotMqttClient(clientEndpoint, clientId, pair.keyStore, pair.keyPassword);*/
+
+
+        // MSQTT over TLS 1.2 (loading key store directly from a file)
+        /*String keyStoreFile = values.get("filename");
         String keyStorePassword = values.get("keyStorePass");
         String keyPassword = values.get("keyPass");
 
@@ -43,14 +56,20 @@ public class MQTTclient {
             System.exit(1);
         }
 
-        String clientEndpoint = values.get("clientEndpoint");
-        String clientId = values.get("clientId");
+        //System.out.println(keyStoreFile);
+        //System.out.println(keyStorePassword);
+        //System.out.println(keyPassword);
+        //System.out.println(clientEndpoint);
+        //System.out.println(clientId);
+
         client = new AWSIotMqttClient(clientEndpoint, clientId, keyStore, keyPassword);
+        System.out.println(client);//*/
 
         // optional parameters can be set before connect()
         try {
             client.connect();
         } catch (Exception e) {
+            System.out.println("An error occurred while connecting the MQTT client!");
             e.printStackTrace();
             System.exit(1);
         }
@@ -71,6 +90,7 @@ public class MQTTclient {
                 client.publish(message, timeout);
             }
         } catch (Exception e) {
+            System.out.println("An error occurred while publishing a message with the MQTT client!");
             e.printStackTrace();
         }
     }
@@ -84,6 +104,16 @@ public class MQTTclient {
         try {
             client.subscribe(topic);
         } catch (Exception e) {
+            System.out.println("An error occurred while subscribing to a topic with the MQTT client!");
+            e.printStackTrace();
+        }
+    }
+
+    public void disconnect() {
+        try {
+            client.disconnect();
+        } catch (Exception e) {
+            System.out.println("An error occurred while disconnecting the MQTT client!");
             e.printStackTrace();
         }
     }

@@ -68,6 +68,10 @@ public class GUImain extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    public void write(String text) {
+        textArea.append(text);
+    }
+
 
     class MyListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
@@ -81,11 +85,8 @@ public class GUImain extends JFrame {
 
                     textArea.setText("");
 
-                    MQTTclient mqttClient = new MQTTclient();
-                    mqttClient.initMQTTclient();
-
                     String uniqueID = UUID.randomUUID().toString();
-                    ves = new VirtualEnvironmentStation(uniqueID, textArea, mqttClient);
+                    ves = new VirtualEnvironmentStation(uniqueID, GUImain.this);
                     System.out.println("New Virtual Environment Station started with id = " + uniqueID);
                     Thread t = new Thread(ves);
                     t.start();
@@ -102,7 +103,7 @@ public class GUImain extends JFrame {
                     pause.setEnabled(false);
                     resume.setEnabled(true);
                     System.out.println("Paused");
-                    ves.stop();
+                    ves.pause();
                     break;
                 case "Resume":
                     resume.setEnabled(false);

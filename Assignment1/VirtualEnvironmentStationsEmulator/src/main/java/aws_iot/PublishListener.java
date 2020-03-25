@@ -3,6 +3,9 @@ package aws_iot;
 import com.amazonaws.services.iot.client.AWSIotMessage;
 import com.amazonaws.services.iot.client.AWSIotQos;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class PublishListener extends AWSIotMessage {
 
     public PublishListener(String topic, AWSIotQos qos, String payload) {
@@ -11,7 +14,9 @@ public class PublishListener extends AWSIotMessage {
 
     @Override
     public void onSuccess() {
-        System.out.println(System.currentTimeMillis() + ": >>> " + getStringPayload());
+        LocalDateTime dateTime = LocalDateTime.now(); // Gets the current date and time
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        System.out.println(dateTime.format(formatter) + ": >>> " + getTopic() + " " + getStringPayload());
     }
 
     @Override
