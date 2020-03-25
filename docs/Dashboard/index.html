@@ -155,7 +155,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="../index.html">Internet Of Things 19-20<!--<img src="images/logo.png" alt="Logo">--></a>
+                    <a class="navbar-brand" href="../index.html"><i class="fa fa-home"><i> Internet Of Things 19-20</i></i><!--<img src="images/logo.png" alt="Logo">--></a>
                     <a class="navbar-brand hidden" href="../index.html">IoT 19-20 <!--<img src="images/logo2.png" alt="Logo">--></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
@@ -333,9 +333,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>-->
-                </div>
+                    </div>
+                  </div>-->
                 <!-- /Widgets -->
+
+                <style>
+                .clickable-row {
+                    cursor: pointer;
+                }
+
+                .clickable-row:hover {
+                  background-color: #f2f2f2;
+                }
+
+                html {
+                  scroll-behavior: smooth;
+                }
+
+                </style>
 
                 <!-- Orders -->
                 <div class="orders">
@@ -349,7 +364,7 @@
                                       </div>
                                       <div class="stat-content">
                                           <div class="text-left dib">
-                                              <div class="stat-text"><span class="count">23569</span></div>
+                                              <div class="stat-text"><span id="stations_number"></span></div>
                                               <div class="stat-heading">Stations</div>
                                           </div>
                                       </div>
@@ -358,7 +373,7 @@
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">
-                                        <table class="table ">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th class="serial">#</th>
@@ -367,12 +382,12 @@
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
+                                            <tbody id="stations-table-body">
+                                                <!--<tr class='clickable-row' data-href="#real-time">
                                                     <td class="serial">1.</td>
                                                     <td class="avatar">
                                                         <div class="round-img">
-                                                            <a href="#"><img class="rounded-circle" src="images/avatar/avatar1.png" alt=""></a>
+                                                            <img class="rounded-circle" src="images/avatar/avatar1.png" alt="">
                                                         </div>
                                                     </td>
                                                     <td> #5469 </td>
@@ -416,9 +431,9 @@
                                                         <span class="badge badge-pending">Offline</span>
                                                     </td>
                                                 </tr>
-                                                <tr class=" pb-0">
+                                                <tr>
                                                     <td class="serial">5.</td>
-                                                    <td class="avatar pb-0">
+                                                    <td class="avatar">
                                                         <div class="round-img">
                                                             <a href="#"><img class="rounded-circle" src="images/avatar/avatar5.png" alt=""></a>
                                                         </div>
@@ -427,7 +442,7 @@
                                                     <td>
                                                         <span class="badge badge-complete">Online</span>
                                                     </td>
-                                                </tr>
+                                                </tr>-->
                                             </tbody>
                                         </table>
                                     </div> <!-- /.table-stats -->
@@ -463,7 +478,7 @@
                 </div>
 
                 <!--  Traffic  -->
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -471,9 +486,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <div class="card-body">
+                                    <div class="card-body">-->
                                         <!-- <canvas id="TrafficChart"></canvas>   -->
-                                        <div id="traffic-chart" class="traffic-chart"></div>
+                                        <!--<div id="traffic-chart" class="traffic-chart"></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -512,26 +527,82 @@
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-5" role="progressbar" style="width: 10%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
-                                        </div>
-                                    </div> <!-- /.card-body -->
-                                </div>
-                            </div> <!-- /.row -->
-                            <div class="card-body"></div>
+                                        </div>-->
+                                    <!--</div> --><!-- /.card-body -->
+                                <!--</div>
+                            </div>--> <!-- /.row -->
+                            <!--<div id="real-time-pos-for-scrolling" class="card-body"></div>
                         </div>
-                    </div><!-- /# column -->
-                </div>
+                    </div>--><!-- /# column -->
+                <!--</div>-->
                 <!--  /Traffic -->
                 <div class="clearfix"></div>
 
+                <!-- Line Chart -->
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="mb-3">Line Chart</h4>
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                  <div id="real-time-pos-for-scrolling" class="card-body"></div>
+                </div>
+                <!-- /Line Chart -->
+
                 <!-- Real Chart -->
-                <div class="row">
+                <div id="real-time" class="row" >
                   <div class="col-lg-6">
                     <div class="card">
                       <div class="card-body">
-                        <h4 class="box-title">Real Time</h4>
-                          <div class="flot-container">
-                            <div id="cpu-load" class="cpu-load"></div>
+                          <!-- Card header -->
+                          <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-1">
+                              <i class="ti-pulse"></i>
+                            </div>
+                            <div class="stat-content">
+                              <div class="text-left dib">
+                                  <div class="stat-text"><span>Real Time</span></div>
+                                  <div id="stationId-real-time" class="stat-heading">StationId</div>
+                              </div>
+                            </div>
                           </div>
+                          <!-- /Card header -->
+                          <!-- Card body -->
+                          <div class="progress-box progress-1">
+                              <h4 class="por-title">Temperature</h4>
+                              <div id="temperature-real-time" class="por-txt"></div>
+                              <div class="progress mb-2" style="height: 5px;">
+                                  <div id="temperature-real-time-progress" class="progress-bar bg-flat-color-1" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="-50" aria-valuemax="50"></div>
+                              </div>
+                          </div>
+                          <div class="progress-box progress-2">
+                              <h4 class="por-title">Humidity</h4>
+                              <div id="humidity-real-time" class="por-txt"></div>
+                              <div class="progress mb-2" style="height: 5px;">
+                                  <div id="humidity-real-time-progress" class="progress-bar bg-flat-color-2" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                          </div>
+                          <div class="progress-box progress-2">
+                              <h4 class="por-title">Wind direction</h4>
+                              <div id="windDirection-real-time" class="por-txt"></div>
+                              <div class="progress mb-2" style="height: 5px;">
+                                  <div id="windDirection-real-time-progress" class="progress-bar bg-flat-color-3" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="360"></div>
+                              </div>
+                          </div>
+                          <div class="progress-box progress-2">
+                              <h4 class="por-title">Wind intensity</h4>
+                              <div id="windIntensity-real-time" class="por-txt"></div>
+                              <div class="progress mb-2" style="height: 5px;">
+                                  <div id="windIntensity-real-time-progress" class="progress-bar bg-flat-color-4" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                          </div>
+                          <div class="progress-box progress-2">
+                              <h4 class="por-title">Rain height</h4>
+                              <div id="rainHeight-real-time" class="por-txt"></div>
+                              <div class="progress mb-2" style="height: 5px;">
+                                  <div id="rainHeight-real-time-progress" class="progress-bar bg-flat-color-5" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+                              </div>
+                          </div>
+                          <!-- /Card body -->
                       </div>
                     </div>
                   </div>
@@ -747,6 +818,10 @@
                     </div>
                 </div>-->
             <!-- /#add-category -->
+
+            <h2>TEXTAREA</h2>
+            <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+
             </div>
             <!-- .animated -->
         </div>
@@ -778,7 +853,7 @@
 
     <!--  Chart js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
-    <!-- For Real time -->
+    <!-- For Real time pulse graph -->
     <!--<script src="assets/js/init/flot-chart-init.js"></script>-->
 
     <!--Chartist Chart-->
@@ -789,17 +864,319 @@
     <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
     <script src="assets/js/init/weather-init.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="assets/js/init/fullcalendar-init.js"></script>
+    <script src="assets/js/init/fullcalendar-init.js"></script>-->
+
+    <!-- For AWS DynamoDB -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
 
     <!--Local Stuff-->
     <script>
         jQuery(document).ready(function($) {
             "use strict";
+
+            // My additions
+            // Show real time data of the clicked station
+            /*$(".clickable-row").click(function() {
+                alert("click");
+                window.location = $(this).data("href");
+            });*/
+            $('#real-time').hide();
+
+            /*AWS.config.update({
+              region: "us-east-1",
+              //endpoint: "https://dynamodb.us-east-1.amazonaws.com",
+
+              // accessKeyId default can be used while using the downloadable version of DynamoDB.
+              // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+              accessKeyId: "",
+              // secretAccessKey default can be used while using the downloadable version of DynamoDB.
+              // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+              secretAccessKey: ""
+            });//*/
+
+            // Initialize Amazon Cognito credentials provider
+            AWS.config.region = 'us-east-1';
+            AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                IdentityPoolId: 'us-east-1:daa17eed-ea6f-4b56-8eba-1ef0acc52774',
+            });//*/
+
+            var docClient = new AWS.DynamoDB.DocumentClient();
+            getAllStationsFromDB();
+            //getLastHourDataFromDB("temperature");
+
+            // Just for testing
+            /*var data = [
+              ["#4322", "Online"],
+              ["#4323", "Offline"],
+              ["#4324", "Online"],
+              ["#4325", "Online"],
+              ["#4326", "Offline"],
+              ["#4327", "Offline"],
+              ["#4328", "Online"],
+            ];
+            populateTable("#stations-table-body", data, data.length);//*/
+
+            updateRealTimeProgressBars([35, 22, 180, 32, 23]);
+
+            // IT DOES NOT WORK WITH DB ELEMENTS, READ BELOW
+            /*$(".clickable-row").click(function(){
+              alert("click");
+              $('#real-time').show();
+              var stationId = ($(this).children()[2]).innerHTML;
+              $("#stationId-real-time").text(stationId);
+              window.location = "#real-time-pos-for-scrolling";
+            });*/
+
+            // IT DOES NOT WORK WITH DB ELEMENTS, READ BELOW
+            /*$('.clickable-row').on('click', function() {
+              $('#real-time').show();
+              var stationId = ($(this).children()[2]).innerHTML;
+              $("#stationId-real-time").text(stationId);
+              window.location = "#real-time-pos-for-scrolling";
+            });*/
+
+            // JQuery OnClick Method is bound to an element or selector on page ready/load.
+            // Therefore if that element you want to click isn’t there at the time of page ready,
+            // the binding can’t happen.
+            // The fix is easy enough, simply bind the OnClick event to the parent of the elements
+            // you want to be able to click on.
+            $("#stations-table-body").delegate(".clickable-row", "click", function(){
+              $('#real-time').show();
+              var stationId = ($(this).children()[2]).innerHTML;
+              $("#stationId-real-time").text(stationId);
+              window.location = "#real-time-pos-for-scrolling";
+            });
+
+            // Populate a table specifying the id, the data and the amount of them.
+            // Data is an array of arrays [["id", "status"], ..., [...]]
+            function populateTable(tableId, data, amount) {
+              // Example of data
+              /*var data = [
+                ["#4322", "Online"],
+                ["#4322", "Offline"]
+              ];*/
+
+              var stations_number_element = $("#stations_number");
+              stations_number_element.text(amount);
+              stations_number_element.addClass("count");
+
+              for (var i=0; i<amount; i++){
+                // Returns a random integer from 0 to 9
+                var random = Math.floor(Math.random() * 10);
+
+                if (data[i][1] == "Online")
+                  $(tableId).append("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-complete'>"+data[i][1]+"</span></td></tr>");
+                else
+                  $(tableId).append("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-pending'>"+data[i][1]+"</span></td></tr>");
+
+
+                  // In this way doesn't appear properly
+                  /*$("#stations-table-body").append(""+
+                    +"<tr>"
+                    +    "<td class='serial'>3.</td>"
+                    +    "<td class='avatar'>"
+                    +      "<div class='round-img'>"
+                    +        "<a href='#'><img class='rounded-circle' src='images/avatar/avatar3.png' alt=''></a>"
+                    +      "</div>"
+                    +    "</td>"
+                    +    "<td> #5467 </td>"
+                    +    "<td>"
+                    +      "<span class='badge badge-complete'>Online</span>"
+                    +    "</td>"
+                    +"</tr>"
+                  );*/
+              }
+            }
+
+            // Scan the DB to get all stations
+            function getAllStationsFromDB() {
+              console.log("Scanning Stations table..." + "\n");
+              //document.getElementById('textarea').innerHTML += "Scanning Stations table..." + "\n";
+
+              var params = {
+                  TableName : "VirtualEnvironmentStationsDB",
+                  ProjectionExpression: "Id, #dt",
+                  ExpressionAttributeNames:{
+                      "#dt": "dateTime"
+                  }
+              };
+
+              docClient.scan(params, onScan);
+
+              function onScan(err, data) {
+                  if (err) {
+                      console.log("Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2));
+                      //document.getElementById('textarea').innerHTML += "Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2);
+                  } else {
+                      // Print all the stations
+                      console.log("Scanning succeeded.");
+                      //document.getElementById('textarea').innerHTML += "Scan succeeded. " + "\n";
+                      var map = new Map();
+
+                      data.Items.forEach(function(station) {
+                          //document.getElementById('textarea').innerHTML += station.Id + " " + station.dateTime + "\n";
+                          // DynamoDB scan the DB from first inserted entry to last so the Last
+                          // valued set is the most recent
+                          map.set(station.Id, station.dateTime);
+                      });
+
+                      // Continue scanning if we have more movies (per scan 1MB limitation)
+                      if (typeof data.LastEvaluatedKey != "undefined") {
+                          //console.log("Scanning for more...");
+                          document.getElementById('textarea').innerHTML += "Scanning for more...";
+                          params.ExclusiveStartKey = data.LastEvaluatedKey;
+                          docClient.scan(params, onScan);
+                      }
+
+                      // Prepare data for the table
+                      var stations_number = 0;
+                      var stations = [];    // Array of arrays
+                      var dateTimes = getDateTime();
+                      var now = dateTimes[0];
+                      var dateTimeOneIntervalAgo = dateTimes[3];
+
+                      for (let [key, value] of map.entries()) {
+                        //console.log('key is ' + key + ', value is ' + value);
+
+                        // Check current status
+                        if (isDateTimeInRange(value, dateTimeOneIntervalAgo, now))
+                          stations.push([key, "Online"]);
+                        else
+                          stations.push([key, "Offline"]);
+
+                        stations_number++;
+                      }
+
+                      populateTable("#stations-table-body", stations, stations_number);
+                  }
+              }
+            }
+
+            // Query the DB to get real time data from a station
+            function getRealTimeDataFromDB(stationId) {
+              document.getElementById('textarea').innerHTML += "Querying for real time data of "+stationId+"...";
+
+              var params = {
+                  TableName : "VirtualEnvironmentStationsDB",
+                  ProjectionExpression: "Payload",
+                  KeyConditionExpression: "Id = :stationId",
+                  ExpressionAttributeValues: {
+                      ":stationId": stationId
+                  }
+              };
+
+              docClient.query(params, function(err, data) {
+                  if (err) {
+                      document.getElementById('textarea').innerHTML += "Unable to query. Error: " + "\n" + JSON.stringify(err, undefined, 2);
+                  } else {
+                      document.getElementById('textarea').innerHTML += "Querying for real time data of "+stationId+ ":\n" + JSON.stringify(data, undefined, 2);
+
+                  }
+              });
+            }
+
+            // Return current dateTime, the dateTime of 1 hour ago and
+            // the dateTime of 1 station interval of sending ago
+            function getDateTime() {
+              var now     = new Date();
+              var year    = now.getFullYear();
+              var month   = now.getMonth()+1;
+              var day     = now.getDate();
+              var hour    = now.getHours();
+              var minute  = now.getMinutes();
+              var second  = now.getSeconds();
+
+              if(month < 10) {
+                month = '0' + month;
+              }
+              if(day < 10) {
+                day = '0' + day;
+              }
+              if(hour < 10) {
+                hour = '0' + hour;
+              }
+              if(minute < 10) {
+                minute = '0' + minute;
+              }
+              if(second < 10) {
+                second = '0' + second;
+              }
+
+              var dateTime               = year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second;
+              var dateTimeOneHourAgo     = year+'-'+month+'-'+day+' '+(hour-1)+':'+minute+':'+second;
+              var dateTimeOneIntervalAgo = year+'-'+month+'-'+day+' '+hour+':'+minute+':'+(second-5);
+              return [dateTime, dateTimeOneHourAgo, dateTimeOneIntervalAgo];
+            }
+
+            // Check if a dateTime is between dateTimes in start and end
+            function isDateTimeInRange(dateTime, start, end) {
+              var d = new Date(dateTime);
+              var s = new Date(start);
+              var e = new Date(end);
+
+              return s <= d && d <= e;
+            }
+
+            // Query the DB to get values received during the last hour from all environmental station
+            // of a specified sensor
+            // Se non funziona between allora usare formato data 2015-12-21T17:42:34Z
+            function getLastHourDataFromDB(sensor) {
+                document.getElementById('textarea').innerHTML += "Querying for last hour" + sensor +" values from all environmental station...";
+
+                var dateTime = getDateTime();
+                var params = {
+                    TableName : "VirtualEnvironmentStationsDB",
+                    ProjectionExpression: "Id, dateTime",
+                    KeyConditionExpression: "dateTime between :start_h and :end_h",
+                    FilterExpression: "Payload."+sensor+" = :sensor",
+                    ExpressionAttributeValues: {
+                        ":start_h": dateTime[1],
+                        ":end_h": dateTime[0],
+                        ":sensor": sensor
+                    }
+                };
+
+                docClient.query(params, function(err, data) {
+                    if (err) {
+                        document.getElementById('textarea').innerHTML += "Unable to query. Error: " + "\n" + JSON.stringify(err, undefined, 2);
+                    } else {
+                        document.getElementById('textarea').innerHTML += "Querying for movies from 1985: " + "\n" + JSON.stringify(data, undefined, 2);
+
+                    }
+                });
+            }
+
+            // Updates the text and the progressbar with the new value
+            function updateProgressBar(textId, progressbarId, value, measureUnit="", showPercentage=false) {
+              var progressbar = $(progressbarId);
+              //alert(progressbarId + ": " + progressbar.attr("aria-valuemax"));
+              var perc = (value / progressbar.attr("aria-valuemax")) * 100;
+              //alert(progressbarId + ": " + perc);
+
+              progressbar.css("width", perc + "%");
+              progressbar.attr("aria-valuenow", value);
+
+              if (showPercentage)
+                $(textId).text(value + " " + measureUnit + " (" + perc + "%)");
+              else
+                $(textId).text(value + measureUnit);
+            }
+
+            // Update real time progress bars with new data as array
+            function updateRealTimeProgressBars(data) {
+              updateProgressBar("#temperature-real-time", "#temperature-real-time-progress", data[0], "°C", true);
+              updateProgressBar("#humidity-real-time", "#humidity-real-time-progress", data[1], "%");
+              updateProgressBar("#windDirection-real-time", "#windDirection-real-time-progress", data[2], "degrees", true);
+              updateProgressBar("#windIntensity-real-time", "#windIntensity-real-time-progress", data[3], "m/s", true);
+              updateProgressBar("#rainHeight-real-time", "#rainHeight-real-time-progress", data[4], "mm/h", true);
+            }
+
+
 
             // Pie chart flotPie1
             /*var piedata = [

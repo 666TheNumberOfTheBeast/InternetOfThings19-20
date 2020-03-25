@@ -368,11 +368,12 @@
 
 $(document).ready(function() {
     SufeeAdmin.cpuLoad();
+    // Comment next lines to put real time chart into index.html
     SufeeAdmin.lineFlot();
     SufeeAdmin.pieFlot();
     SufeeAdmin.line2Flot();
     SufeeAdmin.barFlot();
-    SufeeAdmin.plotting();
+    SufeeAdmin.plotting();//*/
 
 });
 
