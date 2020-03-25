@@ -346,6 +346,14 @@
                   background-color: #f2f2f2;
                 }
 
+                .clickable-card {
+                    cursor: pointer;
+                }
+
+                .clickable-card:hover {
+                  filter: brightness(85%);
+                }
+
                 html {
                   scroll-behavior: smooth;
                 }
@@ -538,19 +546,137 @@
                 <!--  /Traffic -->
                 <div class="clearfix"></div>
 
-                <!-- Line Chart -->
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="mb-3">Line Chart</h4>
-                    <canvas id="lineChart"></canvas>
-                  </div>
-                  <div id="real-time-pos-for-scrolling" class="card-body"></div>
+                <!-- Widgets -->
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-flat-color-1 clickable-card">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">Temperature</h3>
+                                    <p class="text-light mt-1 m-0">Show last hour values</p>
+                                </div><!-- /.card-left -->
+
+                                <!--<div class="card-right float-right text-right">
+                                    <i class="icon fade-5 icon-lg pe-7s-cart"></i>
+                                </div>--><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div><!--/.col-->
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-flat-color-6 clickable-card">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">Humidity</h3>
+                                    <p class="text-light mt-1 m-0">Show last hour values</p>
+                                </div><!-- /.card-left -->
+
+                                <!--<div class="card-right float-right text-right">
+                                  <i class="icon fade-5 icon-lg fa fa-thermometer-three-quarters"></i>
+                                </div>--><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-flat-color-2 clickable-card">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">Wind direction</h3>
+                                    <p class="text-light mt-1 m-0">Show last hour values</p>
+                                </div><!-- /.card-left -->
+
+                                <!--<div class="card-right float-right text-right">
+                                    <i class="icon fade-5 icon-lg pe-7s-users"></i>
+                                </div>--><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-flat-color-4 clickable-card">
+                            <div class="card-body">
+                                <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">Wind intensity</h3>
+                                    <p class="text-light mt-1 m-0">Show last hour values</p>
+                                </div><!-- /.card-left -->
+
+                                <div class="card-right float-right text-right">
+                                    <div id="flotLine1" class="flotLine1"></div>
+                                </div><!-- /.card-right -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-flat-color-3 clickable-card">
+                            <div class="card-body">
+                              <div class="card-left pt-1 float-left">
+                                    <h3 class="mb-0 fw-r">Rain height</h3>
+                                    <p class="text-light mt-1 m-0">Show last hour values</p>
+                                </div><!-- /.card-left -->
+
+                                <div class="card-right float-right text-right">
+                                    <div id="flotLine1" class="flotLine1"></div>
+                                </div><!-- /.card-right -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.col-->
+
                 </div>
+                <!-- /Widgets -->
+
+                <!-- Just for smooth scrolling properly -->
+                <div id="history-chart-pos-for-scrolling" class="card-body"><br></div>
+
+                <!-- Line Chart -->
+                <!--<div id="history-chart" class="row" >
+                  <div class="col-xl-8">
+                    <div class="card">
+                      <div class="card-body">-->
+                        <!-- Card header -->
+                        <!--<div class="stat-widget-five">
+                          <div class="stat-icon dib flat-color-3">
+                            <i class="pe-7s-graph2"></i>
+                          </div>
+                          <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span>History Chart</span></div>
+                                <div id="stationId-history" class="stat-heading">stationId</div>
+                            </div>
+                          </div>
+                        </div>-->
+                        <!-- /Card header -->
+                        <!--<canvas id="historyChart"></canvas>
+                      </div>-->
+                      <!--<div id="real-time-pos-for-scrolling" class="card-body"></div>--> <!-- Just for scrolling properly -->
+                    <!--</div>
+                  </div>
+                </div>-->
                 <!-- /Line Chart -->
+
+                <div id="history-charts"></div>
+
+                <!-- Just for smooth scrolling properly -->
+                <div id="real-time-pos-for-scrolling" class="card-body"></div>
 
                 <!-- Real Chart -->
                 <div id="real-time" class="row" >
-                  <div class="col-lg-6">
+                  <div class="col-xl-8">
+                  <!--<div class="col-lg-6">-->
                     <div class="card">
                       <div class="card-body">
                           <!-- Card header -->
@@ -578,14 +704,14 @@
                               <h4 class="por-title">Humidity</h4>
                               <div id="humidity-real-time" class="por-txt"></div>
                               <div class="progress mb-2" style="height: 5px;">
-                                  <div id="humidity-real-time-progress" class="progress-bar bg-flat-color-2" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                  <div id="humidity-real-time-progress" class="progress-bar bg-flat-color-6" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                               </div>
                           </div>
                           <div class="progress-box progress-2">
                               <h4 class="por-title">Wind direction</h4>
                               <div id="windDirection-real-time" class="por-txt"></div>
                               <div class="progress mb-2" style="height: 5px;">
-                                  <div id="windDirection-real-time-progress" class="progress-bar bg-flat-color-3" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="360"></div>
+                                  <div id="windDirection-real-time-progress" class="progress-bar bg-flat-color-2" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="360"></div>
                               </div>
                           </div>
                           <div class="progress-box progress-2">
@@ -599,7 +725,7 @@
                               <h4 class="por-title">Rain height</h4>
                               <div id="rainHeight-real-time" class="por-txt"></div>
                               <div class="progress mb-2" style="height: 5px;">
-                                  <div id="rainHeight-real-time-progress" class="progress-bar bg-flat-color-5" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+                                  <div id="rainHeight-real-time-progress" class="progress-bar bg-flat-color-3" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
                               </div>
                           </div>
                           <!-- /Card body -->
@@ -819,8 +945,8 @@
                 </div>-->
             <!-- /#add-category -->
 
-            <h2>TEXTAREA</h2>
-            <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
+            <!--h2>TEXTAREA</h2>
+            <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>-->
 
             </div>
             <!-- .animated -->
@@ -880,12 +1006,15 @@
             "use strict";
 
             // My additions
-            // Show real time data of the clicked station
-            /*$(".clickable-row").click(function() {
-                alert("click");
-                window.location = $(this).data("href");
-            });*/
+            // At the beginning hide all the charts
             $('#real-time').hide();
+            //$('#history-chart').hide();
+
+            // Global variables
+            var updateInterval = 5000; //milliseconds
+            var updateIntervalInSeconds = 5;
+            var realTimeStationId = null;
+
 
             /*AWS.config.update({
               region: "us-east-1",
@@ -919,13 +1048,12 @@
               ["#4327", "Offline"],
               ["#4328", "Online"],
             ];
-            populateTable("#stations-table-body", data, data.length);//*/
+            populateTable("#stations-table-body", data, data.length);
 
-            updateRealTimeProgressBars([35, 22, 180, 32, 23]);
+            updateRealTimeProgressBars([35, 22, 180, 32, 23]);//*/
 
             // IT DOES NOT WORK WITH DB ELEMENTS, READ BELOW
             /*$(".clickable-row").click(function(){
-              alert("click");
               $('#real-time').show();
               var stationId = ($(this).children()[2]).innerHTML;
               $("#stationId-real-time").text(stationId);
@@ -948,8 +1076,37 @@
             $("#stations-table-body").delegate(".clickable-row", "click", function(){
               $('#real-time').show();
               var stationId = ($(this).children()[2]).innerHTML;
+
+              // If user click the same station, the card is closed, then stop to query the DB
+              if(realTimeStationId == stationId) {
+                realTimeStationId = null;
+                $('#real-time').hide();
+                return;
+              }
+
               $("#stationId-real-time").text(stationId);
               window.location = "#real-time-pos-for-scrolling";
+
+              /*if ($("#real-time-pos-for-scrolling").is(":visible"))
+                window.location = "#real-time-pos-for-scrolling";
+              else
+                window.location = "#history-chart-pos-for-scrolling";*/
+
+              realTimeStationId = stationId;
+              getRealTimeDataFromDB(stationId);
+            });
+
+            $(".clickable-card").click(function(){
+              //$('#history-chart').show();
+              var sensor = $(this).find("h3").text();
+
+              // Set a timeout waiting for the creation of the new elements
+              setTimeout(function() {
+                  window.location = "#history-chart-pos-for-scrolling";
+              },
+              500);
+
+              getLastHourDataFromDB(sensor);
             });
 
             // Populate a table specifying the id, the data and the amount of them.
@@ -972,7 +1129,7 @@
                 if (data[i][1] == "Online")
                   $(tableId).append("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-complete'>"+data[i][1]+"</span></td></tr>");
                 else
-                  $(tableId).append("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-pending'>"+data[i][1]+"</span></td></tr>");
+                  $(tableId).append("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-danger'>"+data[i][1]+"</span></td></tr>");
 
 
                   // In this way doesn't appear properly
@@ -995,7 +1152,7 @@
 
             // Scan the DB to get all stations
             function getAllStationsFromDB() {
-              console.log("Scanning Stations table..." + "\n");
+              console.log("Scanning Stations table..\n.");
               //document.getElementById('textarea').innerHTML += "Scanning Stations table..." + "\n";
 
               var params = {
@@ -1014,7 +1171,7 @@
                       //document.getElementById('textarea').innerHTML += "Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2);
                   } else {
                       // Print all the stations
-                      console.log("Scanning succeeded.");
+                      console.log("Scanning succeeded.\n");
                       //document.getElementById('textarea').innerHTML += "Scan succeeded. " + "\n";
                       var map = new Map();
 
@@ -1028,7 +1185,7 @@
                       // Continue scanning if we have more movies (per scan 1MB limitation)
                       if (typeof data.LastEvaluatedKey != "undefined") {
                           //console.log("Scanning for more...");
-                          document.getElementById('textarea').innerHTML += "Scanning for more...";
+                          //document.getElementById('textarea').innerHTML += "Scanning for more...";
                           params.ExclusiveStartKey = data.LastEvaluatedKey;
                           docClient.scan(params, onScan);
                       }
@@ -1038,10 +1195,15 @@
                       var stations = [];    // Array of arrays
                       var dateTimes = getDateTime();
                       var now = dateTimes[0];
-                      var dateTimeOneIntervalAgo = dateTimes[3];
+                      var dateTimeOneIntervalAgo = dateTimes[2];
+
+                      //alert(now);
+                      //alert(dateTimeOneIntervalAgo);
 
                       for (let [key, value] of map.entries()) {
                         //console.log('key is ' + key + ', value is ' + value);
+                        //console.log('now: ' + now);
+                        //console.log('dateTimeOneIntervalAgo ' + dateTimeOneIntervalAgo);
 
                         // Check current status
                         if (isDateTimeInRange(value, dateTimeOneIntervalAgo, now))
@@ -1055,16 +1217,24 @@
                       populateTable("#stations-table-body", stations, stations_number);
                   }
               }
+
             }
 
             // Query the DB to get real time data from a station
-            function getRealTimeDataFromDB(stationId) {
-              document.getElementById('textarea').innerHTML += "Querying for real time data of "+stationId+"...";
+            function getRealTimeDataFromDB(stationId=realTimeStationId) {
+              if(stationId == null)
+                return null;
+
+              console.log("Querying for real time data of "+ stationId +"...\n");
+              //document.getElementById('textarea').innerHTML += "Querying for real time data of "+stationId+"...\n";
 
               var params = {
                   TableName : "VirtualEnvironmentStationsDB",
-                  ProjectionExpression: "Payload",
+                  ProjectionExpression: "Id, #dt, Payload",
                   KeyConditionExpression: "Id = :stationId",
+                  ExpressionAttributeNames:{
+                      "#dt": "dateTime"
+                  },
                   ExpressionAttributeValues: {
                       ":stationId": stationId
                   }
@@ -1072,12 +1242,26 @@
 
               docClient.query(params, function(err, data) {
                   if (err) {
-                      document.getElementById('textarea').innerHTML += "Unable to query. Error: " + "\n" + JSON.stringify(err, undefined, 2);
+                      console.log("Unable to query. Error:\n" + JSON.stringify(err, undefined, 2));
+                      //document.getElementById('textarea').innerHTML += "Unable to query. Error: " + "\n" + JSON.stringify(err, undefined, 2);
                   } else {
-                      document.getElementById('textarea').innerHTML += "Querying for real time data of "+stationId+ ":\n" + JSON.stringify(data, undefined, 2);
+                      console.log("Querying succeeded.\n");
+                      //document.getElementById('textarea').innerHTML += "Querying succeeded.\n";
 
+                      var payload = null;
+                      data.Items.forEach(function(station) {
+                          payload = station.Payload;
+                          //document.getElementById('textarea').innerHTML += station.Id + " " + station.dateTime
+                            //+ "\ntemperature: " + payload.temperature
+                            //+ "\nhumidity: " + payload.humidity + "\n";
+                          // DynamoDB scan the DB from first inserted entry to last one
+                      });
+
+                      if (payload != null)
+                        updateRealTimeProgressBars([payload.temperature, payload.humidity, payload.windDirection, payload.windIntensity, payload.rainHeight]);
                   }
               });
+
             }
 
             // Return current dateTime, the dateTime of 1 hour ago and
@@ -1091,72 +1275,187 @@
               var minute  = now.getMinutes();
               var second  = now.getSeconds();
 
-              if(month < 10) {
-                month = '0' + month;
-              }
-              if(day < 10) {
-                day = '0' + day;
-              }
-              if(hour < 10) {
-                hour = '0' + hour;
-              }
-              if(minute < 10) {
-                minute = '0' + minute;
-              }
-              if(second < 10) {
-                second = '0' + second;
-              }
+              month = getTwoDigits(month);
+              day = getTwoDigits(day);
+              hour = getTwoDigits(hour);
+              minute = getTwoDigits(minute);
+              second = getTwoDigits(second);
 
-              var dateTime               = year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second;
-              var dateTimeOneHourAgo     = year+'-'+month+'-'+day+' '+(hour-1)+':'+minute+':'+second;
-              var dateTimeOneIntervalAgo = year+'-'+month+'-'+day+' '+hour+':'+minute+':'+(second-5);
+              var dateTime = day+'-'+month+'-'+year+' '+hour+':'+minute+':'+second;
+              var dateTimeOneHourAgo = "";
+              var dateTimeOneIntervalAgo = "";
+              var tolerance = 3;      // Tolerance in seconds for the temporal window
+              var updateIntervalInSecondsWithTolerance = updateIntervalInSeconds + tolerance;
+
+              if(hour == 0)
+                dateTimeOneHourAgo = getTwoDigits(day-1)+'-'+month+'-'+year+' 23:'+minute+':'+second;
+              else
+                dateTimeOneHourAgo = day+'-'+month+'-'+year+' '+getTwoDigits(hour-1)+':'+minute+':'+second;
+
+              // Assume updateIntervalInSecondsWithTolerance < 60, +second convert the string into a number
+              if(second < updateIntervalInSecondsWithTolerance)
+                dateTimeOneIntervalAgo = day+'-'+month+'-'+year+' '+hour+':'+getTwoDigits(minute-1)+':'+getTwoDigits(60 + +second - updateIntervalInSecondsWithTolerance);
+              else
+                dateTimeOneIntervalAgo = day+'-'+month+'-'+year+' '+hour+':'+minute+':'+getTwoDigits(second-updateIntervalInSecondsWithTolerance);
+
               return [dateTime, dateTimeOneHourAgo, dateTimeOneIntervalAgo];
+            }
+
+            // Return a two digits string (assuming I pass only positive values of at most two digits)
+            function getTwoDigits(number) {
+              if(number < 10 && number.toString().length == 1)
+                return '0' + number;
+              else
+                return number;
+            }
+
+            // create equivalent Date object from the string 'dd-mm-yyyy hh:mm:ss'
+            // e.g. 25-03-2020 16:53:41 => equivalent Date obj
+            function convertDateTimeToDate(dateTime) {
+              var day = dateTime.substr(0,2);
+              var month = dateTime.substr(3,2) - 1;
+              var year = dateTime.substr(6,4);
+              var hours = dateTime.substr(11,2);
+              var minutes = dateTime.substr(14,2);
+              var seconds = dateTime.substr(17,2);
+
+              return new Date(year, month, day, hours, minutes, seconds)
             }
 
             // Check if a dateTime is between dateTimes in start and end
             function isDateTimeInRange(dateTime, start, end) {
-              var d = new Date(dateTime);
-              var s = new Date(start);
-              var e = new Date(end);
+              var d = convertDateTimeToDate(dateTime);
+              var s = convertDateTimeToDate(start);
+              var e = convertDateTimeToDate(end);
+
+              //console.log("dateTime: " + d + "\n");
+              //console.log("start: " + s + "\n");
+              //console.log("end: " + e + "\n");
+              //console.log("s <= d && d <= e ? " + (s <= d && d <= e) + "\n");
 
               return s <= d && d <= e;
+            }
+
+            // Substitute all spaces with the UpperCase of the next char and remove the duplicate
+            // e.g wind direction => windDirection
+            function createVariableName(string) {
+              // Remove whitespace from both sides of a string and
+              // convert the string to lowercase letters
+              string = string.trim().toLowerCase();
+
+              for (var i=0; i < string.length; i++) {
+                // Doesn't throw exception since I used trim()
+                if (string.charAt(i) == " ") {
+                  // The substr() method extracts parts of a string,
+                  // beginning at the character at the specified position,
+                  // and returns the specified number of characters.
+                  string = string.substr(0, i) + string.charAt(i+1).toUpperCase() + string.substr(i+2);
+                }
+              }
+
+              return string;
             }
 
             // Query the DB to get values received during the last hour from all environmental station
             // of a specified sensor
             // Se non funziona between allora usare formato data 2015-12-21T17:42:34Z
             function getLastHourDataFromDB(sensor) {
-                document.getElementById('textarea').innerHTML += "Querying for last hour" + sensor +" values from all environmental station...";
+                sensor = createVariableName(sensor);
+
+                console.log("Querying for last hour " + sensor +" values from all environmental station...\n");
+                //document.getElementById('textarea').innerHTML += "Querying for last hour " + sensor +" values from all environmental station...\n";
 
                 var dateTime = getDateTime();
                 var params = {
-                    TableName : "VirtualEnvironmentStationsDB",
-                    ProjectionExpression: "Id, dateTime",
-                    KeyConditionExpression: "dateTime between :start_h and :end_h",
-                    FilterExpression: "Payload."+sensor+" = :sensor",
-                    ExpressionAttributeValues: {
-                        ":start_h": dateTime[1],
-                        ":end_h": dateTime[0],
-                        ":sensor": sensor
-                    }
+                  TableName : "VirtualEnvironmentStationsDB",
+                  ProjectionExpression: "Id, #dt, Payload", //."+sensor,
+                  ExpressionAttributeNames:{
+                      "#dt": "dateTime"
+                  },
+                  FilterExpression: "#dt between :start_h and :end_h", //and Payload."+sensor+" = :sensor",
+                  ExpressionAttributeValues: {
+                      ":start_h": dateTime[1],
+                      ":end_h": dateTime[0],
+                  }
                 };
 
-                docClient.query(params, function(err, data) {
-                    if (err) {
-                        document.getElementById('textarea').innerHTML += "Unable to query. Error: " + "\n" + JSON.stringify(err, undefined, 2);
-                    } else {
-                        document.getElementById('textarea').innerHTML += "Querying for movies from 1985: " + "\n" + JSON.stringify(data, undefined, 2);
+                docClient.scan(params, onScan);
 
+                function onScan(err, data) {
+                    if (err) {
+                        console.log("Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2));
+                        //document.getElementById('textarea').innerHTML += "Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2);
+                    } else {
+                        // Print all the stations
+                        console.log("Scanning succeeded.\n");
+                        //document.getElementById('textarea').innerHTML += "Scan succeeded. " + "\n";
+
+                        // Map where to store station objects
+                        var stations = new Map();
+
+                        data.Items.forEach(function(stationData) {
+                            //document.getElementById('textarea').innerHTML += stationData.Id + "\n"
+                            //                                        + stationData.dateTime + "\n"
+                            //                                        + stationData.Payload[sensor] + "\n";
+
+                            // DynamoDB scan the DB from first inserted entry to last one
+
+                            //console.log(station.sensorValues + "\n" + station.dateTimes+ "\n" );
+
+                            var value = stations.get(stationData.Id);
+
+                            if (value == undefined) {
+                              // Object to associate each stationId with two array of values
+                              var station = {id:"", sensorValues:[], dateTimes:[]};
+
+                              station.sensorValues.push(stationData.Payload[sensor]);
+                              station.dateTimes.push(stationData.dateTime);
+                              stations.set(stationData.Id, station);
+                            }
+                            else {
+                              value.sensorValues.push(stationData.Payload[sensor]);
+                              value.dateTimes.push(stationData.dateTime);
+                            }
+                        });
+
+                        // Continue scanning if we have more data (per scan 1MB limitation)
+                        if (typeof data.LastEvaluatedKey != "undefined") {
+                            //console.log("Scanning for more...");
+                            //document.getElementById('textarea').innerHTML += "Scanning for more...";
+                            params.ExclusiveStartKey = data.LastEvaluatedKey;
+                            docClient.scan(params, onScan);
+                        }
+
+                        // Clean area where to put the new charts
+                        var area = $("#history-charts");
+                        area.html("");
+
+                        // Draw a chart for each station
+                        for (let [key, value] of stations.entries()) {
+                          //console.log('key is ' + key + ', value is ' + value);
+                          createCardForChart(area, key);
+                          drawLineChart(key, sensor, value.dateTimes, value.sensorValues);
+                        }
                     }
-                });
+                }
+
             }
 
             // Updates the text and the progressbar with the new value
             function updateProgressBar(textId, progressbarId, value, measureUnit="", showPercentage=false) {
               var progressbar = $(progressbarId);
-              //alert(progressbarId + ": " + progressbar.attr("aria-valuemax"));
-              var perc = (value / progressbar.attr("aria-valuemax")) * 100;
-              //alert(progressbarId + ": " + perc);
+              var minValue = progressbar.attr("aria-valuemin");
+              var perc = 0;
+
+              if (minValue == 0)
+                perc = (value / progressbar.attr("aria-valuemax")) * 100;
+              // Translate to center in zero
+              else if (minValue < 0)
+                perc = ((value+Math.abs(minValue)) / (+(progressbar.attr("aria-valuemax"))+Math.abs(minValue))) * 100;
+              else
+                perc = ((value-Math.abs(minValue)) / (+(progressbar.attr("aria-valuemax"))-Math.abs(minValue))) * 100;
+
+              perc = Math.floor(perc * 100) / 100;    // Return only 2 decimal digits
 
               progressbar.css("width", perc + "%");
               progressbar.attr("aria-valuenow", value);
@@ -1174,7 +1473,105 @@
               updateProgressBar("#windDirection-real-time", "#windDirection-real-time-progress", data[2], "degrees", true);
               updateProgressBar("#windIntensity-real-time", "#windIntensity-real-time-progress", data[3], "m/s", true);
               updateProgressBar("#rainHeight-real-time", "#rainHeight-real-time-progress", data[4], "mm/h", true);
+
+              if (realTimeStationId != null)
+                setTimeout(getRealTimeDataFromDB, updateInterval);
             }
+
+            function createCardForChart(area, stationId) {
+              area.append("<div id='history-chart"+stationId+"' class='row'><div class='col-xl-8'><div class='card'><div class='card-body'><div class='stat-widget-five'><div class='stat-icon dib flat-color-3'><i class='pe-7s-graph2'></i></div><div class='stat-content'><div class='text-left dib'><div class='stat-text'><span>History Chart</span></div><div class='stat-heading'>"+stationId+"</div></div></div></div><canvas id='historyChart"+stationId+"'></canvas></div></div></div></div>");
+
+              /*<!-- Line Chart -->
+              <div id="history-chart" class="row" >
+                <div class="col-xl-8">
+                  <div class="card">
+                    <div class="card-body">
+                      <!-- Card header -->
+                      <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-3">
+                          <i class="pe-7s-graph2"></i>
+                        </div>
+                        <div class="stat-content">
+                          <div class="text-left dib">
+                              <div class="stat-text"><span>History Chart</span></div>
+                              <div id="stationId-history" class="stat-heading">stationId</div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Card header -->
+                      <canvas id="historyChart"></canvas>
+                    </div>
+                    <div id="real-time-pos-for-scrolling" class="card-body"></div> <!-- Just for scrolling properly -->
+                  </div>
+                </div>
+              </div>
+              <!-- /Line Chart -->*/
+
+            }
+
+
+            function drawLineChart(stationId, sensor, labelValues, dataValues) {
+              var color = "";
+
+              switch(sensor) {
+                case "temperature":
+                  color = "#00c292";
+                  break;
+                case "humidity":
+                  color = "#5c6bc0";
+                  break;
+                case "windDirection":
+                  color = "#ab8ce4";
+                  break;
+                case "windIntensity":
+                  color = "#fb9678";
+                  break;
+                case "rainHeight":
+                  color = "#03a9f3";
+                  break;
+                default:
+                  color = 'rgb(255, 99, 132)';
+              }
+
+              //alert(labelValues);
+              //alert(dataValues);
+
+              //var canvas = $('historyChart'+stationId);
+              var canvas = document.getElementById('historyChart'+stationId);
+              var ctx = canvas.getContext('2d');
+              // Clear the canvas
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              var chart = new Chart(ctx, {
+                  // The type of chart we want to create
+                  type: 'line',
+
+                  // The data for our dataset
+                  data: {
+                      labels: labelValues, //['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+                      datasets: [{
+                          label: sensor,
+                          backgroundColor: color,
+                          borderColor: color,
+                          data: dataValues //[0, 10, 5, 2, 20, 30, 45, 35, 50]
+                      }]
+                  },
+
+                  // Configuration options go here
+                  options: {
+                    /*animation: {
+                        onProgress: function(animation) {
+                            progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+                        }
+                    }*/
+                  }
+
+              });
+            }
+
+
+
+
+
 
 
 
