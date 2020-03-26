@@ -76,8 +76,8 @@
                     <li class="active">
                         <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
-                    <li class="menu-title">UI elements</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
+                    <!--<li class="menu-title">UI elements</li>--><!-- /.menu-title -->
+                    <!--<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Components</a>
                         <ul class="sub-menu children dropdown-menu">                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
@@ -107,9 +107,9 @@
                         </ul>
                     </li>
 
-                    <li class="menu-title">Icons</li><!-- /.menu-title -->
+                    <li class="menu-title">Icons</li>--><!-- /.menu-title -->
 
-                    <li class="menu-item-has-children dropdown">
+                    <!--<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
@@ -135,15 +135,15 @@
                             <li><i class="menu-icon fa fa-street-view"></i><a href="maps-vector.html">Vector Maps</a></li>
                         </ul>
                     </li>
-                    <li class="menu-title">Extras</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
+                    <li class="menu-title">Extras</li>--><!-- /.menu-title -->
+                    <!--<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
                             <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -257,7 +257,8 @@
         </header>
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
+        <!-- Added display:none to fadeIn the whole content -->
+        <div class="content" style="display:none">
             <!-- Animated -->
             <div class="animated fadeIn">
                 <!-- Widgets  -->
@@ -346,11 +347,19 @@
                   background-color: #f2f2f2;
                 }
 
+                .clickable-row:active {
+                  background-color: #f2f2f2;
+                }
+
                 .clickable-card {
                     cursor: pointer;
                 }
 
                 .clickable-card:hover {
+                  filter: brightness(85%);
+                }
+
+                .clickable-card:focus {
                   filter: brightness(85%);
                 }
 
@@ -547,7 +556,7 @@
                 <div class="clearfix"></div>
 
                 <!-- Widgets -->
-                <div class="row">
+                <div id="widgets" class="row">
                     <div class="col-sm-6 col-lg-4">
                         <div class="card text-white bg-flat-color-1 clickable-card">
                             <div class="card-body">
@@ -954,7 +963,8 @@
         <!-- /.content -->
         <div class="clearfix"></div>
         <!-- Footer -->
-        <footer class="site-footer">
+        <!-- Added display:none to fadeIn the whole content -->
+        <footer class="site-footer" style="display:none">
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
@@ -1006,9 +1016,9 @@
             "use strict";
 
             // My additions
-            // At the beginning hide all the charts
+            // At the beginning hide the chart
             $('#real-time').hide();
-            //$('#history-chart').hide();
+            //$("#widgets").hide();
 
             // Global variables
             var updateInterval = 5000; //milliseconds
@@ -1074,13 +1084,13 @@
             // The fix is easy enough, simply bind the OnClick event to the parent of the elements
             // you want to be able to click on.
             $("#stations-table-body").delegate(".clickable-row", "click", function(){
-              $('#real-time').show();
+              $('#real-time').fadeIn("slow");
               var stationId = ($(this).children()[2]).innerHTML;
 
               // If user click the same station, the card is closed, then stop to query the DB
               if(realTimeStationId == stationId) {
                 realTimeStationId = null;
-                $('#real-time').hide();
+                $('#real-time').fadeOut("slow");
                 return;
               }
 
@@ -1128,9 +1138,10 @@
 
                 if (data[i][1] == "Online")
                   $(tableId).append("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-complete'>"+data[i][1]+"</span></td></tr>");
+                  //$("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-complete'>"+data[i][1]+"</span></td></tr>").hide().appendTo(tableId).fadeIn('slow');
                 else
                   $(tableId).append("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-danger'>"+data[i][1]+"</span></td></tr>");
-
+                  //$("<tr class='clickable-row'><td class='serial'>"+(i+1)+".</td><td class='avatar'><div class='round-img'><a href='#'><img class='rounded-circle' src='images/avatar/avatar"+random+".png' alt=''></a></div></td><td>"+data[i][0]+"</td><td><span class='badge badge-danger'>"+data[i][1]+"</span></td></tr>").hide().appendTo(tableId).fadeIn('slow');
 
                   // In this way doesn't appear properly
                   /*$("#stations-table-body").append(""+
@@ -1215,7 +1226,9 @@
                       }
 
                       populateTable("#stations-table-body", stations, stations_number);
-                  }
+                      $(".content").fadeIn("slow");
+                      $(".site-footer").fadeIn("slow");
+                    }
               }
 
             }
