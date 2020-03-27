@@ -1109,13 +1109,6 @@
             $(".clickable-card").click(function(){
               //$('#history-chart').show();
               var sensor = $(this).find("h3").text();
-
-              // Set a timeout waiting for the creation of the new elements
-              setTimeout(function() {
-                  window.location = "#history-chart-pos-for-scrolling";
-              },
-              500);
-
               getLastHourDataFromDB(sensor);
             });
 
@@ -1410,9 +1403,6 @@
                             //document.getElementById('textarea').innerHTML += stationData.Id + "\n"
                             //                                        + stationData.dateTime + "\n"
                             //                                        + stationData.Payload[sensor] + "\n";
-
-                            // DynamoDB scan the DB from first inserted entry to last one
-
                             //console.log(station.sensorValues + "\n" + station.dateTimes+ "\n" );
 
                             var value = stations.get(stationData.Id);
@@ -1443,11 +1433,24 @@
                         var area = $("#history-charts");
                         area.html("");
 
+                        var isEmpty = true;
+
                         // Draw a chart for each station
                         for (let [key, value] of stations.entries()) {
                           //console.log('key is ' + key + ', value is ' + value);
                           createCardForChart(area, key);
                           drawLineChart(key, sensor, value.dateTimes, value.sensorValues);
+                          isEmpty = false;
+                        }
+
+                        if (isEmpty)
+                          alert("No station sent data in the past hour");
+                        else {
+                          //Set a timeout waiting for the creation of the new elements
+                          setTimeout(function() {
+                            window.location = "#history-chart-pos-for-scrolling";
+                          },
+                          500);
                         }
                     }
                 }

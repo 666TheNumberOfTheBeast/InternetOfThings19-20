@@ -143,7 +143,6 @@ public class VirtualEnvironmentStation implements Runnable {
 
             mqttClient.publish("sensor/station"+id, json.toString(), false);
 
-
             try{
                 Thread.sleep(5000);
             } catch (Exception e) {

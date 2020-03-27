@@ -25,8 +25,8 @@ Using *HTML, CSS* and *Javascript* I developed a [website](https://666thenumbero
 - display the values received during the last hour from all environmental station of a specified sensor
 
 # Extra
-[Demo](http://google.com) of the system.
-[Blog Post](http://google.com) where you can find a hands-on tutorial on how to setup and run the system.
+[Demo](https://youtu.be/Bl5EqkK0KrA) of the system.
+[Blog Post](https://www.hackster.io/xmetal1997/iot-virtual-environment-stations-emulator-4fc78b) where you can find a hands-on tutorial on how to setup and run the system.
 
 ***
 © All rights reserved, 666TheNumberOfTheBeast

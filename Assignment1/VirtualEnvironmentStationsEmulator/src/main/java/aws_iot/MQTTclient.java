@@ -24,7 +24,7 @@ public class MQTTclient {
 
         String clientEndpoint = values.get("clientEndpoint");
 
-        // MSQTT over WebSocket
+        // MQTT over WebSocket
         // With AWS Educate these credentials are updated each 3 hours
         /*String awsAccessKeyId = "<your-access-key>";
         String awsSecretAccessKey = "<your-secret-key>";
@@ -33,7 +33,7 @@ public class MQTTclient {
         client = new AWSIotMqttClient(clientEndpoint, clientId, awsAccessKeyId, awsSecretAccessKey, sessionToken);//*/
 
 
-        // MSQTT over TLS 1.2 (generating KeyStore from certificate and private key)
+        // MQTT over TLS 1.2 (generating KeyStore from certificate and private key)
         /*String certificateFile = path + values.get("certificateFile");             // X.509 based certificate file
         String privateKeyFile = path + values.get("privateKeyFile");              // PKCS#1 or PKCS#8 PEM encoded private key file
 
@@ -41,7 +41,7 @@ public class MQTTclient {
         client = new AWSIotMqttClient(clientEndpoint, clientId, pair.keyStore, pair.keyPassword);*/
 
 
-        // MSQTT over TLS 1.2 (loading key store directly from a file)
+        // MQTT over TLS 1.2 (loading key store directly from a file)
         String keyStoreFile = values.get("filename");
         String keyStorePassword = values.get("keyStorePass");
         String keyPassword = values.get("keyPass");
