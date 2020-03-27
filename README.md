@@ -1,5 +1,5 @@
 # InternetOfThings19-20
-Repository of Ivan Fardin student of the Internet of Things 2019-2020 course @ *Sapienza University of Rome*.
+Repository of Ivan Fardin student for the Internet of Things 2019-2020 course of the MSc Engineering in Computer Science @ *Sapienza University of Rome*.
 
 All the code is contained into:
  - *AssignmentX* folders (one for each assignment)

@@ -2,7 +2,7 @@
 In this assignment I created a cloud-based IoT system that collects information from a set of virtual environmental sensors using the MQTT protocol. I also created a simple website to display the data collected from the sensors.
 
 # Virtual Sensors
-Using *Java* language programming I wrote a stand-alone program that represents virtual environmental stations that generate periodically a set of random values for 5 different sensors:
+Using *Java* language programming I wrote a stand-alone program that represent a virtual environmental station that generates periodically a set of random values for 5 different sensors:
 - temperature (-50 ... 50 Celsius)
 - humidity (0 ... 100%)
 - wind direction (0 ... 360 degrees)
@@ -14,16 +14,19 @@ The virtual environmental station uses a unique ID (identity) to publish these r
 # Usage
 The program can be started in two ways:
 - terminal based (no control on sending MQTT messages. Start it and it will work until you'll stop it)
-- UI based (*recommended*: more control on sending MQTT messages. Start, pause, resume and stop it by using a simple UI)
+- GUI based (*recommended*: more control on sending MQTT messages. Start, pause, resume and stop it by using a simple UI)
 
 # Cloud-based IoT Backend
 The MQTT is controlled by the cloud-based backend implemented using *AWS IoT*.
 
 # Web-based Dashboard
-Using *HTML* and *Javascript* I developed a [website](https://666thenumberofthebeast.github.io/InternetOfThings19-20/) that provides the following functionality:
+Using *HTML, CSS* and *Javascript* I developed a [website](https://666thenumberofthebeast.github.io/InternetOfThings19-20/) that provides the following functionalities:
 - display the latest values received from all the sensors of a specified environmental station
 - display the values received during the last hour from all environmental station of a specified sensor
 
-# WHAT/HOW TO SUBMIT
-Create a [YouTube video](http://google.com) with a 3 minute demonstration of your system.
-Create a [Blog Post](http://google.com) where you present a hands-on tutorial on how to setup and run your system.
+# Extra
+[Demo](http://google.com) of the system.
+[Blog Post](http://google.com) where you can find a hands-on tutorial on how to setup and run the system.
+
+***
+© All rights reserved, 666TheNumberOfTheBeast

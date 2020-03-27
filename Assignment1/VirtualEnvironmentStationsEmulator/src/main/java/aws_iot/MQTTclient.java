@@ -26,7 +26,7 @@ public class MQTTclient {
 
         // MSQTT over WebSocket
         // With AWS Educate these credentials are updated each 3 hours
-        String awsAccessKeyId = "<your-access-key>";
+        /*String awsAccessKeyId = "<your-access-key>";
         String awsSecretAccessKey = "<your-secret-key>";
         String sessionToken = "<your-token>";
         // AWS IAM credentials could be retrieved from AWS Cognito, STS, or other secure sources
@@ -42,7 +42,7 @@ public class MQTTclient {
 
 
         // MSQTT over TLS 1.2 (loading key store directly from a file)
-        /*String keyStoreFile = values.get("filename");
+        String keyStoreFile = values.get("filename");
         String keyStorePassword = values.get("keyStorePass");
         String keyPassword = values.get("keyPass");
 
