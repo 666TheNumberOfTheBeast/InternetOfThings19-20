@@ -48,6 +48,7 @@ static char topics[NUMOFSUBS][TOPIC_MAXLEN];
 
 // My additions
 #include <time.h>
+#include "uuid.h"
 
 // Constants
 const double MIN_VALUE_TEMPERATURE = -50;
@@ -82,9 +83,15 @@ static double genValue(double min, double max) {
 static void *station_thread(void *arg) {
     (void)arg;
 
-    char id[3] = "id";
-    char topic[20] = "sensor/station";
-    strcat(topic, id);
+    uuid_t uid;
+    uuid_v4(&uid);
+
+    char id[37];
+    uuid_to_string(&uid, id);
+
+    char topic[51] = "sensor/station";
+    // Avoid to add the id now to correctly subscribe to topic with Mosquitto RSMB MQTTSN client
+    //strcat(topic, id);
 
     while(1) {
       double temperature = genValue(MIN_VALUE_TEMPERATURE, MAX_VALUE_TEMPERATURE);
@@ -100,17 +107,17 @@ static void *station_thread(void *arg) {
 
       //"dd-MM-yyyy HH:mm:ss"
       // %F equivalent to "%Y-%m-%d" and %T to %H:%M:%S"
-      int res = strftime(dateTime, sizeof(dateTime), "%F %T", t);
+      int res = strftime(dateTime, sizeof(dateTime), "%d-%m-%Y %T", t);
       if(res == 0) {
-        printf("Error: strftime failed!\n");
+        printf("Error: parsing of dateTime failed!\n");
         return NULL;
       }
 
-      // 95 caratteri senza contare le sostituzioni dei valori
+      // 95+14 caratteri senza contare le sostituzioni dei valori
       // 25 caratteri per i 5 sensori
-      char json[157];
+      char json[196];
       snprintf(json, sizeof(json),
-       "{ Id: %s, dateTime: %s, temperature: %.2f, humidity: %.2f, windDirection: %.2f, windIntensity: %.2f, rainHeight: %.2f }",
+       "{ \"Id\": \"%s\", \"dateTime\": \"%s\", \"temperature\": %.2f, \"humidity\": %.2f, \"windDirection\": %.2f, \"windIntensity\": %.2f, \"rainHeight\": %.2f }",
        id, dateTime, temperature, humidity, windDirection, windIntensity, rainHeight);
 
       // Publish in the topic the message

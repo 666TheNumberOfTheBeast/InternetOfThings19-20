@@ -52,6 +52,7 @@
 #define MODULE_GNRC_SOCK 1
 #define MODULE_GNRC_SOCK_UDP 1
 #define MODULE_GNRC_UDP 1
+#define MODULE_HASHES 1
 #define MODULE_ICMPV6 1
 #define MODULE_INET_CSUM 1
 #define MODULE_IOLIST 1
@@ -94,4 +95,5 @@
 #define MODULE_SYS 1
 #define MODULE_TINYMT32 1
 #define MODULE_UDP 1
+#define MODULE_UUID 1
 #define MODULE_XTIMER 1

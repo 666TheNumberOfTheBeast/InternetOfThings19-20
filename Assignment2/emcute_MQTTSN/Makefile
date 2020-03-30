@@ -26,6 +26,8 @@ USEMODULE += gnrc_icmpv6_echo
 # My additions
 # For timer
 USEMODULE += xtimer
+# For uuid
+USEMODULE += uuid
 # end additions
 
 # Allow for env-var-based override of the nodes name (EMCUTE_ID)

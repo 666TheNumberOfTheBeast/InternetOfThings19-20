@@ -123,7 +123,8 @@
  /home/ivan/Scrivania/Internet_of_Things/RIOT-OS-lectures/RIOT/sys/include/net/sock/ip.h \
  /usr/include/time.h /usr/include/bits/time.h \
  /usr/include/bits/types/struct_tm.h \
- /usr/include/bits/types/struct_itimerspec.h
+ /usr/include/bits/types/struct_itimerspec.h \
+ /home/ivan/Scrivania/Internet_of_Things/RIOT-OS-lectures/RIOT/sys/include/uuid.h
 
 /usr/include/stdc-predef.h:
 
@@ -440,3 +441,5 @@
 /usr/include/bits/types/struct_tm.h:
 
 /usr/include/bits/types/struct_itimerspec.h:
+
+/home/ivan/Scrivania/Internet_of_Things/RIOT-OS-lectures/RIOT/sys/include/uuid.h:
