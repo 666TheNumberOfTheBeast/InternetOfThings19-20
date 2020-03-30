@@ -18,12 +18,16 @@
 
 import MQTTSN, socket, time, MQTTSNinternal, thread, types, sys, struct
 
+# My additions
+import MQTTClient
+import json
 
 class Callback:
 
   def __init__(self):
     self.events = []
     self.registered = {}
+    self.myMQTTClient = None
 
   def connectionLost(self, cause):
     print( "default connectionLost", cause )
@@ -32,9 +36,24 @@ class Callback:
   def messageArrived(self, topicName, payload, qos, retained, msgid):
     print( "default publishArrived", topicName, payload, qos, retained, msgid )
 
-    # Mando messaggio arrivato al MQTTSN client al broker di AWS
+    # Try to parse a JSON
+    msg = ""
+    try:
+        msg = json.loads(payload)
+    except:
+        return False
 
+    id = msg["Id"]
+    if (id is None):
+        return False
 
+    # Check if the MQTTClient is initialized
+    if (self.myMQTTClient is None):
+        self.myMQTTClient = MQTTClient.MQTTClient(id)
+        self.myMQTTClient.initMQTTclient()
+
+    # Send JSON to the AWS broker via the MQTTClient adding the ID of the station
+    self.myMQTTClient.publish("sensor/station" + id, payload)
     return True
 
   def deliveryComplete(self, msgid):
@@ -267,10 +286,12 @@ aclient.registerCallback(Callback())
 aclient.connect()
 
 # Comunico con la thing in RIOT-OS tap0 attraverso il topic a cui si e' sottoscritta
-rc, topic1 = aclient.subscribe("hello/world")
-aclient.publish(topic1, "Hello World from Python on Linux", qos=0)
+#rc, topic1 = aclient.subscribe("hello/world")
+#aclient.publish(topic1, "Hello World from Python on Linux", qos=0)
 
-# Loop in cui mi metto in ascolto dei messaggi
+
+rc, topic1 = aclient.subscribe("sensor/station")
+# Loop to receive messages
 while True:
     pass
 
