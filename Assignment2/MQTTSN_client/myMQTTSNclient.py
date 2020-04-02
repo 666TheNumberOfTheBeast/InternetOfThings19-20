@@ -291,11 +291,15 @@ aclient.connect()
 
 
 rc, topic1 = aclient.subscribe("sensor/station")
-# Loop to receive messages
-while True:
-    pass
 
-aclient.disconnect()
+# Loop to receive messages and intercept Ctrl+c to disconnect in a correct way
+try:
+    while True:
+        pass
+except KeyboardInterrupt:
+    print("\nClosing the transparent bridge...")
+    aclient.disconnect()
+    sys.exit()
 
 # Originale
 '''rc, topic1 = aclient.subscribe("topic1")

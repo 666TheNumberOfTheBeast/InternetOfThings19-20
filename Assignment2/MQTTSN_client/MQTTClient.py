@@ -14,7 +14,7 @@ class MQTTClient:
         # For Websocket connection
         # myMQTTClient = AWSIoTMQTTClient("myClientID", useWebsocket=True)
 
-        path = "../keys/"
+        path = "../../Assignment1/keys/"
         values = readFromCSVFile(path + "key.txt")
 
         # Configurations

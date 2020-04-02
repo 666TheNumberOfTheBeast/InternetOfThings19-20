@@ -1,4 +1,5 @@
 /* Generated file do not edit */
+#define EMCUTE_ID "ciao"
 #define DEVELHELP 1
 #define DEBUG_ASSERT_VERBOSE 1
 #define RIOT_APPLICATION "emcute_mqttsn"

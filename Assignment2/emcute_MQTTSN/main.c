@@ -49,6 +49,7 @@ static char topics[NUMOFSUBS][TOPIC_MAXLEN];
 // My additions
 #include <time.h>
 #include "uuid.h"
+#include <signal.h>
 
 // Constants
 const double MIN_VALUE_TEMPERATURE = -50;
@@ -62,11 +63,14 @@ const double MAX_VALUE_WIND_INTENSITY = 100;
 const double MIN_VALUE_RAIN_HEIGHT = 0;
 const double MAX_VALUE_RAIN_HEIGHT = 50;
 
+// Global variables
 // THREAD_STACKSIZE_DEFAULT of the main stack doesn't suffice station thread task
 char station_thread_stack[THREAD_STACKSIZE_LARGE];
+int connected = 0;
 
 static int cmd_con(int argc, char **argv);
 static int cmd_pub(int argc, char **argv);
+static int cmd_discon(int argc, char **argv);
 
 // Returns a random value N such that a <= N <= b
 static double genValue(double min, double max) {
@@ -141,7 +145,11 @@ static int cmd_start(int argc, char **argv) {
     // Start the connection with the MQTT broker
     char* con_param[3] = {"con", argv[1], argv[2]};
     //char* con_param[3] = {"con", "fec0:affe::1", "1885"};
-    cmd_con(3, con_param);
+    int res = cmd_con(3, con_param);
+    if(res)
+      return 1;
+
+    connected = 1;
 
     // Start the station thread
     thread_create(station_thread_stack, sizeof(stack), THREAD_PRIORITY_MAIN - 1,
@@ -149,6 +157,17 @@ static int cmd_start(int argc, char **argv) {
 
     puts("Successfully started station");
     return 0;
+}
+
+static void signal_handler(int signal) {
+    printf("\nClosing the program...\n");
+    signal = 0;
+
+    if(connected) {
+      char* disc_param[3] = {"discon"};
+      cmd_discon(1, disc_param);
+    }
+    exit(signal);
 }
 
 // End of my additions
@@ -236,6 +255,7 @@ static int cmd_discon(int argc, char **argv)
         return 1;
     }
     puts("Disconnect successful");
+    connected = 0;
     return 0;
 }
 
@@ -370,6 +390,7 @@ static const shell_command_t shell_commands[] = {
     { NULL, NULL, NULL }
 };
 
+
 int main(void)
 {
     puts("MQTT-SN example application\n");
@@ -385,6 +406,11 @@ int main(void)
     /* start the emcute thread */
     thread_create(stack, sizeof(stack), EMCUTE_PRIO, 0,
                   emcute_thread, NULL, "emcute");
+
+    // Add a signal handler to close properly the program via Ctrl+c
+    struct sigaction act;
+    act.sa_handler = signal_handler;
+    sigaction(SIGINT, &act, NULL);
 
     /* start shell */
     char line_buf[SHELL_DEFAULT_BUFSIZE];
