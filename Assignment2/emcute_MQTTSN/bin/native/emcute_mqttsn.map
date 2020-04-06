@@ -16925,7 +16925,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/crtn.o
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (etext = .)
 
-.rodata         0x00000000000267a8     0x3bf4
+.rodata         0x00000000000267a8     0x3bfc
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.cst4   0x00000000000267a8        0x4 /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/Scrt1.o
                 0x00000000000267a8                _IO_stdin_used
@@ -16934,317 +16934,317 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/crtn.o
  *fill*         0x00000000000267b9        0x3 
  .rodata        0x00000000000267bc      0x4df /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/startup.o
  *fill*         0x0000000000026c9b        0x5 
- .rodata        0x0000000000026ca0      0x688 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/application_emcute_mqttsn/main.o
- .rodata        0x0000000000027328       0x1f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/board/board_init.o
- .rodata        0x0000000000027347        0xa /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/assert.o
- .rodata        0x0000000000027351        0xe /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread.o
- *fill*         0x000000000002735f        0x1 
- .rodata        0x0000000000027360       0x45 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/init.o
- *fill*         0x00000000000273a5        0x3 
- .rodata        0x00000000000273a8       0x7a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/msg.o
- *fill*         0x0000000000027422        0x2 
+ .rodata        0x0000000000026ca0      0x690 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/application_emcute_mqttsn/main.o
+ .rodata        0x0000000000027330       0x1f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/board/board_init.o
+ .rodata        0x000000000002734f        0xa /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/assert.o
+ .rodata        0x0000000000027359        0xe /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread.o
+ *fill*         0x0000000000027367        0x1 
+ .rodata        0x0000000000027368       0x45 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/init.o
+ *fill*         0x00000000000273ad        0x3 
+ .rodata        0x00000000000273b0       0x7a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/msg.o
+ *fill*         0x000000000002742a        0x2 
  .rodata.assert_crash_message
-                0x0000000000027424       0x12 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
-                0x0000000000027424                assert_crash_message
- .rodata        0x0000000000027436       0x2d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
- *fill*         0x0000000000027463        0x1 
- .rodata        0x0000000000027464      0x1b2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/syscalls.o
- *fill*         0x0000000000027616        0x2 
- .rodata        0x0000000000027618      0x3bc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/irq_cpu.o
- .rodata        0x00000000000279d4      0x1a5 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/native_cpu.o
- *fill*         0x0000000000027b79        0x3 
- .rodata        0x0000000000027b7c       0x86 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
- *fill*         0x0000000000027c02        0x2 
+                0x000000000002742c       0x12 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
+                0x000000000002742c                assert_crash_message
+ .rodata        0x000000000002743e       0x2d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
+ *fill*         0x000000000002746b        0x1 
+ .rodata        0x000000000002746c      0x1b2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/syscalls.o
+ *fill*         0x000000000002761e        0x2 
+ .rodata        0x0000000000027620      0x3bc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/irq_cpu.o
+ .rodata        0x00000000000279dc      0x1a5 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/native_cpu.o
+ *fill*         0x0000000000027b81        0x3 
+ .rodata        0x0000000000027b84       0x86 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
+ *fill*         0x0000000000027c0a        0x2 
  .rodata.emcute_run
-                0x0000000000027c04       0x64 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
- .rodata        0x0000000000027c68       0x26 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock_udp/gnrc_sock_udp.o
- *fill*         0x0000000000027c8e        0x2 
- .rodata        0x0000000000027c90       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_udp/gnrc_udp.o
+                0x0000000000027c0c       0x64 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
+ .rodata        0x0000000000027c70       0x26 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock_udp/gnrc_sock_udp.o
+ *fill*         0x0000000000027c96        0x2 
+ .rodata        0x0000000000027c98       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_udp/gnrc_udp.o
  .rodata.ipv6_addr_unspecified
-                0x0000000000027cc0       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
-                0x0000000000027cc0                ipv6_addr_unspecified
+                0x0000000000027cc8       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+                0x0000000000027cc8                ipv6_addr_unspecified
  .rodata.ipv6_addr_loopback
-                0x0000000000027cd0       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
-                0x0000000000027cd0                ipv6_addr_loopback
+                0x0000000000027cd8       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+                0x0000000000027cd8                ipv6_addr_loopback
  .rodata.ipv6_addr_link_local_prefix
-                0x0000000000027ce0       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
-                0x0000000000027ce0                ipv6_addr_link_local_prefix
+                0x0000000000027ce8       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+                0x0000000000027ce8                ipv6_addr_link_local_prefix
  .rodata.ipv6_addr_solicited_node_prefix
-                0x0000000000027cf0       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
-                0x0000000000027cf0                ipv6_addr_solicited_node_prefix
+                0x0000000000027cf8       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+                0x0000000000027cf8                ipv6_addr_solicited_node_prefix
  .rodata.ipv6_addr_all_nodes_link_local
-                0x0000000000027d00       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
-                0x0000000000027d00                ipv6_addr_all_nodes_link_local
+                0x0000000000027d08       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+                0x0000000000027d08                ipv6_addr_all_nodes_link_local
  .rodata.ipv6_addr_all_routers_link_local
-                0x0000000000027d10       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
-                0x0000000000027d10                ipv6_addr_all_routers_link_local
- .rodata        0x0000000000027d20       0x11 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_to_str.o
- .rodata        0x0000000000027d31       0x22 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_from_str.o
- .rodata        0x0000000000027d53       0x52 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/native-drivers/native-led.o
- *fill*         0x0000000000027da5        0x3 
- .rodata        0x0000000000027da8       0x5e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/pm.o
- .rodata        0x0000000000027e06       0x2f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/timer.o
- *fill*         0x0000000000027e35        0x3 
- .rodata        0x0000000000027e38      0x16b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ps/ps.o
- *fill*         0x0000000000027fa3        0x1 
- .rodata        0x0000000000027fa4       0x84 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell/shell.o
- .rodata        0x0000000000028028      0x11e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/shell_commands.o
- .rodata        0x0000000000028146       0x1a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_sys.o
- .rodata        0x0000000000028160       0x4e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_random.o
- *fill*         0x00000000000281ae        0x2 
- .rodata        0x00000000000281b0      0xed8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
+                0x0000000000027d18       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+                0x0000000000027d18                ipv6_addr_all_routers_link_local
+ .rodata        0x0000000000027d28       0x11 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_to_str.o
+ .rodata        0x0000000000027d39       0x22 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_from_str.o
+ .rodata        0x0000000000027d5b       0x52 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/native-drivers/native-led.o
+ *fill*         0x0000000000027dad        0x3 
+ .rodata        0x0000000000027db0       0x5e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/pm.o
+ .rodata        0x0000000000027e0e       0x2f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/timer.o
+ *fill*         0x0000000000027e3d        0x3 
+ .rodata        0x0000000000027e40      0x16b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ps/ps.o
+ *fill*         0x0000000000027fab        0x1 
+ .rodata        0x0000000000027fac       0x84 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell/shell.o
+ .rodata        0x0000000000028030      0x11e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/shell_commands.o
+ .rodata        0x000000000002814e       0x1a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_sys.o
+ .rodata        0x0000000000028168       0x4e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_random.o
+ *fill*         0x00000000000281b6        0x2 
+ .rodata        0x00000000000281b8      0xed8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
  .rodata._print_netopt
-                0x0000000000029088      0x164 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
- .rodata        0x00000000000291ec      0x1e8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_ipv6_nib.o
- .rodata        0x00000000000293d4      0x3dd /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
- *fill*         0x00000000000297b1        0x3 
+                0x0000000000029090      0x164 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
+ .rodata        0x00000000000291f4      0x1e8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_ipv6_nib.o
+ .rodata        0x00000000000293dc      0x3dd /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
+ *fill*         0x00000000000297b9        0x3 
  .rodata._configure
-                0x00000000000297b4       0x78 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
- .rodata        0x000000000002982c       0x19 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer_core.o
- .rodata        0x0000000000029845       0x14 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer.o
- *fill*         0x0000000000029859        0x3 
- .rodata        0x000000000002985c       0x98 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/async_read.o
+                0x00000000000297bc       0x78 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
+ .rodata        0x0000000000029834       0x19 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer_core.o
+ .rodata        0x000000000002984d       0x14 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer.o
+ *fill*         0x0000000000029861        0x3 
+ .rodata        0x0000000000029864       0x98 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/async_read.o
  .rodata._hex_chars
-                0x00000000000298f4       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/fmt/fmt.o
- .rodata        0x0000000000029904       0x31 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6/gnrc_ipv6.o
- *fill*         0x0000000000029935        0x3 
- .rodata        0x0000000000029938       0x2a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
- *fill*         0x0000000000029962        0x2 
+                0x00000000000298fc       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/fmt/fmt.o
+ .rodata        0x000000000002990c       0x31 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6/gnrc_ipv6.o
+ *fill*         0x000000000002993d        0x3 
+ .rodata        0x0000000000029940       0x2a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
+ *fill*         0x000000000002996a        0x2 
  .rodata.gnrc_ipv6_nib_handle_timer_event
-                0x0000000000029964       0x4c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
- .rodata        0x00000000000299b0       0x86 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_nc.o
- *fill*         0x0000000000029a36        0x2 
- .rodata        0x0000000000029a38       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-arsm.o
- .rodata        0x0000000000029a68       0x5f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_pl.o
- *fill*         0x0000000000029ac7        0x1 
- .rodata        0x0000000000029ac8       0x34 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-internal.o
- .rodata        0x0000000000029afc       0x53 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_ft.o
- *fill*         0x0000000000029b4f        0x1 
- .rodata        0x0000000000029b50       0x2a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ndp/gnrc_ndp.o
- *fill*         0x0000000000029b7a        0x2 
- .rodata        0x0000000000029b7c       0x22 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netapi/gnrc_netapi.o
- *fill*         0x0000000000029b9e        0x2 
- .rodata        0x0000000000029ba0       0xcd /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
- *fill*         0x0000000000029c6d        0x3 
+                0x000000000002996c       0x4c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
+ .rodata        0x00000000000299b8       0x86 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_nc.o
+ *fill*         0x0000000000029a3e        0x2 
+ .rodata        0x0000000000029a40       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-arsm.o
+ .rodata        0x0000000000029a70       0x5f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_pl.o
+ *fill*         0x0000000000029acf        0x1 
+ .rodata        0x0000000000029ad0       0x34 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-internal.o
+ .rodata        0x0000000000029b04       0x53 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_ft.o
+ *fill*         0x0000000000029b57        0x1 
+ .rodata        0x0000000000029b58       0x2a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ndp/gnrc_ndp.o
+ *fill*         0x0000000000029b82        0x2 
+ .rodata        0x0000000000029b84       0x22 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netapi/gnrc_netapi.o
+ *fill*         0x0000000000029ba6        0x2 
+ .rodata        0x0000000000029ba8       0xcd /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
+ *fill*         0x0000000000029c75        0x3 
  .rodata.gnrc_netif_get_from_netdev
-                0x0000000000029c70       0xe4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
+                0x0000000000029c78       0xe4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
  .rodata.gnrc_netif_set_from_netdev
-                0x0000000000029d54       0x50 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
+                0x0000000000029d5c       0x50 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
  .rodata._test_options
-                0x0000000000029da4       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
+                0x0000000000029dac       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
  .rodata.enable.6157
-                0x0000000000029dc4        0x4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
- .rodata        0x0000000000029dc8       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/auto_init_netdev_tap.o
- .rodata        0x0000000000029dd8       0x7a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netreg/gnrc_netreg.o
- *fill*         0x0000000000029e52        0x2 
- .rodata        0x0000000000029e54       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf_static/gnrc_pktbuf_static.o
- .rodata        0x0000000000029e84       0x1e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock/gnrc_sock.o
- *fill*         0x0000000000029ea2        0x2 
- .rodata        0x0000000000029ea4      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/l2util/l2util.o
- .rodata        0x0000000000029fac      0x129 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_tap/netdev_tap.o
- .rodata        0x000000000002a0d5       0x16 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netif/netif.o
- *fill*         0x000000000002a0eb        0x1 
- .rodata        0x000000000002a0ec      0x10a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/hwrng.o
- .rodata        0x000000000002a1f6       0x14 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/random.o
- .rodata        0x000000000002a20a        0xe /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/rmutex.o
- .rodata        0x000000000002a218       0x28 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/evtimer/evtimer.o
- .rodata        0x000000000002a240       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
+                0x0000000000029dcc        0x4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
+ .rodata        0x0000000000029dd0       0x10 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/auto_init_netdev_tap.o
+ .rodata        0x0000000000029de0       0x7a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netreg/gnrc_netreg.o
+ *fill*         0x0000000000029e5a        0x2 
+ .rodata        0x0000000000029e5c       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf_static/gnrc_pktbuf_static.o
+ .rodata        0x0000000000029e8c       0x1e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock/gnrc_sock.o
+ *fill*         0x0000000000029eaa        0x2 
+ .rodata        0x0000000000029eac      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/l2util/l2util.o
+ .rodata        0x0000000000029fb4      0x129 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_tap/netdev_tap.o
+ .rodata        0x000000000002a0dd       0x16 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netif/netif.o
+ *fill*         0x000000000002a0f3        0x1 
+ .rodata        0x000000000002a0f4      0x10a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/hwrng.o
+ .rodata        0x000000000002a1fe       0x14 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/random.o
+ .rodata        0x000000000002a212        0xe /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/rmutex.o
+ .rodata        0x000000000002a220       0x28 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/evtimer/evtimer.o
+ .rodata        0x000000000002a248       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
  .rodata.gnrc_icmpv6_demux
-                0x000000000002a270       0x7c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
- .rodata        0x000000000002a2ec       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
+                0x000000000002a278       0x7c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
+ .rodata        0x000000000002a2f4       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
  .rodata.netdev_eth_get
-                0x000000000002a30c       0x90 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
+                0x000000000002a314       0x90 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x000000000002a39c     0x1aec
+.eh_frame_hdr   0x000000000002a3a4     0x1aec
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x000000000002a39c     0x1aec /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/startup.o
-                0x000000000002a39c                __GNU_EH_FRAME_HDR
+ .eh_frame_hdr  0x000000000002a3a4     0x1aec /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/startup.o
+                0x000000000002a3a4                __GNU_EH_FRAME_HDR
  *(.eh_frame_entry .eh_frame_entry.*)
 
-.eh_frame       0x000000000002be88     0x75bc
+.eh_frame       0x000000000002be90     0x75bc
  *(.eh_frame)
- .eh_frame      0x000000000002be88       0x3c /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/Scrt1.o
+ .eh_frame      0x000000000002be90       0x3c /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/Scrt1.o
                                          0x40 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002bec4       0x14 /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/Scrt1.o
+ .eh_frame      0x000000000002becc       0x14 /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/Scrt1.o
                                          0x2c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002bed8      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/startup.o
+ .eh_frame      0x000000000002bee0      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/startup.o
                                         0x134 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002bfe0      0x2e4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/application_emcute_mqttsn/main.o
+ .eh_frame      0x000000000002bfe8      0x2e4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/application_emcute_mqttsn/main.o
                                         0x324 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c2c4       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/board/board_init.o
+ .eh_frame      0x000000000002c2cc       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/board/board_init.o
                                          0x50 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c2e8       0x1c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/assert.o
+ .eh_frame      0x000000000002c2f0       0x1c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/assert.o
                                          0x48 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c304       0xd0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread.o
+ .eh_frame      0x000000000002c30c       0xd0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread.o
                                         0x224 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c3d4       0x5c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/init.o
+ .eh_frame      0x000000000002c3dc       0x5c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/init.o
                                          0x88 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c430      0x290 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/msg.o
+ .eh_frame      0x000000000002c438      0x290 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/msg.o
                                         0x340 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c6c0       0x3c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
+ .eh_frame      0x000000000002c6c8       0x3c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
                                          0x7c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c6fc       0xf4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread_flags.o
+ .eh_frame      0x000000000002c704       0xf4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread_flags.o
                                         0x17c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c7f0       0xe8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/sched.o
+ .eh_frame      0x000000000002c7f8       0xe8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/sched.o
                                         0x128 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002c8d8      0x358 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/syscalls.o
+ .eh_frame      0x000000000002c8e0      0x358 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/syscalls.o
                                         0x4b0 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002cc30      0x224 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/irq_cpu.o
+ .eh_frame      0x000000000002cc38      0x224 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/irq_cpu.o
                                         0x2e0 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002ce54      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/native_cpu.o
+ .eh_frame      0x000000000002ce5c      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/native_cpu.o
                                         0x168 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002cf5c      0x3ec /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
+ .eh_frame      0x000000000002cf64      0x3ec /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
                                         0x42c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d348      0x1c8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock_udp/gnrc_sock_udp.o
+ .eh_frame      0x000000000002d350      0x1c8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock_udp/gnrc_sock_udp.o
                                         0x274 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d510      0x240 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_udp/gnrc_udp.o
+ .eh_frame      0x000000000002d518      0x240 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_udp/gnrc_udp.o
                                         0x280 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d750       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/inet_csum/inet_csum.o
+ .eh_frame      0x000000000002d758       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/inet_csum/inet_csum.o
                                          0x4c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d770       0xb4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+ .eh_frame      0x000000000002d778       0xb4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
                                         0x13c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d824       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_to_str.o
+ .eh_frame      0x000000000002d82c       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_to_str.o
                                          0x50 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d848       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_from_str.o
+ .eh_frame      0x000000000002d850       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_from_str.o
                                          0x88 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d890       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/native-drivers/native-led.o
+ .eh_frame      0x000000000002d898       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/native-drivers/native-led.o
                                         0x104 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d8d8       0x5c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/pm.o
+ .eh_frame      0x000000000002d8e0       0x5c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/pm.o
                                          0x88 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d934       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/uart.o
+ .eh_frame      0x000000000002d93c       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/uart.o
                                         0x110 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002d958       0xf0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/timer.o
+ .eh_frame      0x000000000002d960       0xf0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/timer.o
                                         0x190 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002da48       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ps/ps.o
+ .eh_frame      0x000000000002da50       0x30 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ps/ps.o
                                          0x5c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002da78       0xa4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/tinymt32.o
+ .eh_frame      0x000000000002da80       0xa4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/tinymt32.o
                                          0xf4 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002db1c       0xfc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell/shell.o
+ .eh_frame      0x000000000002db24       0xfc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell/shell.o
                                         0x13c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002dc18       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_sys.o
+ .eh_frame      0x000000000002dc20       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_sys.o
                                          0x74 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002dc60       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_ps.o
+ .eh_frame      0x000000000002dc68       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_ps.o
                                          0x50 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002dc84       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_random.o
+ .eh_frame      0x000000000002dc8c       0x48 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_random.o
                                          0x74 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002dccc      0x530 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
+ .eh_frame      0x000000000002dcd4      0x530 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
                                         0x570 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002e1fc      0x168 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_ipv6_nib.o
+ .eh_frame      0x000000000002e204      0x168 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_ipv6_nib.o
                                         0x1a8 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002e364      0x3d4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
+ .eh_frame      0x000000000002e36c      0x3d4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
                                         0x428 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002e738       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/stdio_native/stdio_native.o
+ .eh_frame      0x000000000002e740       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/stdio_native/stdio_native.o
                                          0x8c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002e758       0x64 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/tinymt32/tinymt32.o
+ .eh_frame      0x000000000002e760       0x64 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/tinymt32/tinymt32.o
                                          0xf0 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002e7bc      0x12c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/uuid/uuid.o
+ .eh_frame      0x000000000002e7c4      0x12c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/uuid/uuid.o
                                         0x200 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002e8e8      0x280 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer_core.o
+ .eh_frame      0x000000000002e8f0      0x280 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer_core.o
                                         0x2c0 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002eb68      0x118 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer.o
+ .eh_frame      0x000000000002eb70      0x118 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer.o
                                         0x564 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002ec80       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph_common/init.o
+ .eh_frame      0x000000000002ec88       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph_common/init.o
                                          0x50 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002eca4       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/auto_init/auto_init.o
+ .eh_frame      0x000000000002ecac       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/auto_init/auto_init.o
                                          0x50 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002ecc8       0x68 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mutex.o
+ .eh_frame      0x000000000002ecd0       0x68 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mutex.o
                                          0xcc (dimensione prima del rilassamento)
- .eh_frame      0x000000000002ed30       0xbc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/async_read.o
+ .eh_frame      0x000000000002ed38       0xbc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/async_read.o
                                          0xfc (dimensione prima del rilassamento)
- .eh_frame      0x000000000002edec        0x0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/div/div.o
+ .eh_frame      0x000000000002edf4        0x0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/div/div.o
                                          0x5c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002edec      0x1a8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/fmt/fmt.o
+ .eh_frame      0x000000000002edf4      0x1a8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/fmt/fmt.o
                                         0x594 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002ef94      0x140 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6_echo/gnrc_icmpv6_echo.o
+ .eh_frame      0x000000000002ef9c      0x140 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6_echo/gnrc_icmpv6_echo.o
                                         0x180 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002f0d4      0x580 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6/gnrc_ipv6.o
+ .eh_frame      0x000000000002f0dc      0x580 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6/gnrc_ipv6.o
                                         0x5c0 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002f654       0xac /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_hdr/gnrc_ipv6_hdr.o
+ .eh_frame      0x000000000002f65c       0xac /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_hdr/gnrc_ipv6_hdr.o
                                          0xec (dimensione prima del rilassamento)
- .eh_frame      0x000000000002f700      0x6dc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
+ .eh_frame      0x000000000002f708      0x6dc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
                                         0x71c (dimensione prima del rilassamento)
- .eh_frame      0x000000000002fddc      0x134 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_nc.o
+ .eh_frame      0x000000000002fde4      0x134 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_nc.o
                                         0x174 (dimensione prima del rilassamento)
- .eh_frame      0x000000000002ff10      0x410 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-arsm.o
+ .eh_frame      0x000000000002ff18      0x410 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-arsm.o
                                         0x450 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000030320      0x278 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_pl.o
+ .eh_frame      0x0000000000030328      0x278 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_pl.o
                                         0x2b8 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000030598      0x76c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-internal.o
+ .eh_frame      0x00000000000305a0      0x76c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-internal.o
                                         0x7ac (dimensione prima del rilassamento)
- .eh_frame      0x0000000000030d04      0x124 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_ft.o
+ .eh_frame      0x0000000000030d0c      0x124 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_ft.o
                                         0x188 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000030e28      0x2cc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-slaac.o
+ .eh_frame      0x0000000000030e30      0x2cc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-slaac.o
                                         0x30c (dimensione prima del rilassamento)
- .eh_frame      0x00000000000310f4      0x2bc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ndp/gnrc_ndp.o
+ .eh_frame      0x00000000000310fc      0x2bc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ndp/gnrc_ndp.o
                                         0x484 (dimensione prima del rilassamento)
- .eh_frame      0x00000000000313b0       0xb0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netapi/gnrc_netapi.o
+ .eh_frame      0x00000000000313b8       0xb0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netapi/gnrc_netapi.o
                                          0xf0 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031460      0x828 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
+ .eh_frame      0x0000000000031468      0x828 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
                                         0x904 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031c88       0x84 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif_device_type.o
+ .eh_frame      0x0000000000031c90       0x84 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif_device_type.o
                                          0xd4 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031d0c       0xac /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/_netif.o
+ .eh_frame      0x0000000000031d14       0xac /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/_netif.o
                                          0xd8 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031db8       0x8c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_hdr/gnrc_netif_hdr.o
+ .eh_frame      0x0000000000031dc0       0x8c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_hdr/gnrc_netif_hdr.o
                                         0x164 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031e44       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/init.o
+ .eh_frame      0x0000000000031e4c       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/init.o
                                          0x50 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031e68       0x28 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/auto_init_netdev_tap.o
+ .eh_frame      0x0000000000031e70       0x28 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/auto_init_netdev_tap.o
                                          0x54 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031e90      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netreg/gnrc_netreg.o
+ .eh_frame      0x0000000000031e98      0x108 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netreg/gnrc_netreg.o
                                         0x16c (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031f98       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pkt/gnrc_pkt.o
+ .eh_frame      0x0000000000031fa0       0x20 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pkt/gnrc_pkt.o
                                          0x4c (dimensione prima del rilassamento)
- .eh_frame      0x0000000000031fb8       0x8c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf/gnrc_pktbuf.o
+ .eh_frame      0x0000000000031fc0       0x8c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf/gnrc_pktbuf.o
                                         0x114 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032044      0x258 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf_static/gnrc_pktbuf_static.o
+ .eh_frame      0x000000000003204c      0x258 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf_static/gnrc_pktbuf_static.o
                                         0x2b8 (dimensione prima del rilassamento)
- .eh_frame      0x000000000003229c      0x204 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock/gnrc_sock.o
+ .eh_frame      0x00000000000322a4      0x204 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock/gnrc_sock.o
                                         0x244 (dimensione prima del rilassamento)
- .eh_frame      0x00000000000324a0        0x0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/sha1.o
+ .eh_frame      0x00000000000324a8        0x0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/sha1.o
                                         0x1ac (dimensione prima del rilassamento)
- .eh_frame      0x00000000000324a0        0x0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/md5.o
+ .eh_frame      0x00000000000324a8        0x0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/md5.o
                                          0xd8 (dimensione prima del rilassamento)
- .eh_frame      0x00000000000324a0       0x88 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/l2util/l2util.o
+ .eh_frame      0x00000000000324a8       0x88 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/l2util/l2util.o
                                         0x10c (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032528       0x70 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/luid/luid.o
+ .eh_frame      0x0000000000032530       0x70 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/luid/luid.o
                                         0x19c (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032598      0x23c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_tap/netdev_tap.o
+ .eh_frame      0x00000000000325a0      0x23c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_tap/netdev_tap.o
                                         0x290 (dimensione prima del rilassamento)
- .eh_frame      0x00000000000327d4       0x84 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netif/netif.o
+ .eh_frame      0x00000000000327dc       0x84 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netif/netif.o
                                          0xc4 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032858       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/cpuid.o
+ .eh_frame      0x0000000000032860       0x24 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/cpuid.o
                                          0x50 (dimensione prima del rilassamento)
- .eh_frame      0x000000000003287c       0xd8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/hwrng.o
+ .eh_frame      0x0000000000032884       0xd8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/hwrng.o
                                         0x118 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032954       0x6c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/random.o
+ .eh_frame      0x000000000003295c       0x6c /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/random.o
                                          0x98 (dimensione prima del rilassamento)
- .eh_frame      0x00000000000329c0       0x28 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/bitarithm.o
+ .eh_frame      0x00000000000329c8       0x28 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/bitarithm.o
                                          0x74 (dimensione prima del rilassamento)
- .eh_frame      0x00000000000329e8       0xd0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/rmutex.o
+ .eh_frame      0x00000000000329f0       0xd0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/rmutex.o
                                         0x130 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032ab8      0x140 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mbox.o
+ .eh_frame      0x0000000000032ac0      0x140 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mbox.o
                                         0x180 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032bf8      0x2c0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/evtimer/evtimer.o
+ .eh_frame      0x0000000000032c00      0x2c0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/evtimer/evtimer.o
                                         0x338 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000032eb8      0x160 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
+ .eh_frame      0x0000000000032ec0      0x160 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
                                         0x1b4 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000033018      0x244 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_ethernet/gnrc_netif_ethernet.o
+ .eh_frame      0x0000000000033020      0x244 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_ethernet/gnrc_netif_ethernet.o
                                         0x284 (dimensione prima del rilassamento)
- .eh_frame      0x000000000003325c       0x40 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/iolist/iolist.o
+ .eh_frame      0x0000000000033264       0x40 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/iolist/iolist.o
                                          0x8c (dimensione prima del rilassamento)
- .eh_frame      0x000000000003329c       0xa4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
+ .eh_frame      0x00000000000332a4       0xa4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
                                          0xd0 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000033340       0x84 /usr/lib/gcc/x86_64-linux-gnu/7/32/libgcc.a(_udivdi3.o)
+ .eh_frame      0x0000000000033348       0x84 /usr/lib/gcc/x86_64-linux-gnu/7/32/libgcc.a(_udivdi3.o)
                                          0x9c (dimensione prima del rilassamento)
- .eh_frame      0x00000000000333c4       0x60 /usr/lib32/libc_nonshared.a(elf-init.oS)
+ .eh_frame      0x00000000000333cc       0x60 /usr/lib32/libc_nonshared.a(elf-init.oS)
                                          0x8c (dimensione prima del rilassamento)
- .eh_frame      0x0000000000033424       0x1c /usr/lib32/libc_nonshared.a(stack_chk_fail_local.oS)
+ .eh_frame      0x000000000003342c       0x1c /usr/lib32/libc_nonshared.a(stack_chk_fail_local.oS)
                                          0x48 (dimensione prima del rilassamento)
- .eh_frame      0x0000000000033440        0x4 /usr/lib/gcc/x86_64-linux-gnu/7/32/crtendS.o
+ .eh_frame      0x0000000000033448        0x4 /usr/lib/gcc/x86_64-linux-gnu/7/32/crtendS.o
  *(.eh_frame.*)
 
 .gcc_except_table
@@ -18332,180 +18332,180 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib32/crtn.o
 .debug_frame
  *(.debug_frame)
 
-.debug_str      0x0000000000000000    0x2e79f
+.debug_str      0x0000000000000000    0x2e7a3
  *(.debug_str)
- .debug_str     0x0000000000000000    0x160e6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/startup.o
-                                      0x167b4 (dimensione prima del rilassamento)
- .debug_str     0x00000000000160e6     0x7bda /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/application_emcute_mqttsn/main.o
-                                      0x1744d (dimensione prima del rilassamento)
- .debug_str     0x000000000001dcc0      0x100 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/board/board_init.o
-                                       0x6c18 (dimensione prima del rilassamento)
- .debug_str     0x000000000001ddc0      0x154 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/assert.o
-                                       0x5d20 (dimensione prima del rilassamento)
- .debug_str     0x000000000001df14      0x45e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread.o
-                                       0x9044 (dimensione prima del rilassamento)
- .debug_str     0x000000000001e372      0x24e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/init.o
-                                       0x8f70 (dimensione prima del rilassamento)
- .debug_str     0x000000000001e5c0      0x1d6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/msg.o
-                                       0x874e (dimensione prima del rilassamento)
- .debug_str     0x000000000001e796       0xdf /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
-                                       0x6105 (dimensione prima del rilassamento)
- .debug_str     0x000000000001e875      0x159 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread_flags.o
-                                       0x8696 (dimensione prima del rilassamento)
- .debug_str     0x000000000001e9ce      0x1a2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/sched.o
-                                       0x8aac (dimensione prima del rilassamento)
- .debug_str     0x000000000001eb70      0x2cd /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/syscalls.o
-                                      0x15c38 (dimensione prima del rilassamento)
- .debug_str     0x000000000001ee3d      0x2d7 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/irq_cpu.o
-                                      0x13d9f (dimensione prima del rilassamento)
- .debug_str     0x000000000001f114      0x9ed /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/native_cpu.o
-                                      0x14f02 (dimensione prima del rilassamento)
- .debug_str     0x000000000001fb01       0x5d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/tramp.o
-                                         0xa6 (dimensione prima del rilassamento)
- .debug_str     0x000000000001fb5e      0x66e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
-                                      0x164ad (dimensione prima del rilassamento)
- .debug_str     0x00000000000201cc     0x1418 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock_udp/gnrc_sock_udp.o
-                                      0x176c2 (dimensione prima del rilassamento)
- .debug_str     0x00000000000215e4      0x35d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_udp/gnrc_udp.o
-                                      0x16afa (dimensione prima del rilassamento)
- .debug_str     0x0000000000021941      0x15b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/inet_csum/inet_csum.o
-                                       0x863a (dimensione prima del rilassamento)
- .debug_str     0x0000000000021a9c      0x1ed /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
-                                       0x801d (dimensione prima del rilassamento)
- .debug_str     0x0000000000021c89      0x155 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_to_str.o
-                                       0x67e1 (dimensione prima del rilassamento)
- .debug_str     0x0000000000021dde      0x14f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_from_str.o
-                                       0x8824 (dimensione prima del rilassamento)
- .debug_str     0x0000000000021f2d      0x18f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/native-drivers/native-led.o
-                                       0x6c6a (dimensione prima del rilassamento)
- .debug_str     0x00000000000220bc      0x129 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/pm.o
-                                       0xfee6 (dimensione prima del rilassamento)
- .debug_str     0x00000000000221e5      0xc3b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/uart.o
-                                      0x10f6a (dimensione prima del rilassamento)
- .debug_str     0x0000000000022e20      0x15f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/timer.o
-                                       0xffeb (dimensione prima del rilassamento)
- .debug_str     0x0000000000022f7f      0x11e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ps/ps.o
-                                       0x8456 (dimensione prima del rilassamento)
- .debug_str     0x000000000002309d      0x210 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/tinymt32.o
-                                       0x5f4d (dimensione prima del rilassamento)
- .debug_str     0x00000000000232ad      0x270 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell/shell.o
-                                       0x84e4 (dimensione prima del rilassamento)
- .debug_str     0x000000000002351d      0x110 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/shell_commands.o
-                                       0x762b (dimensione prima del rilassamento)
- .debug_str     0x000000000002362d       0xc8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_sys.o
-                                       0x5e46 (dimensione prima del rilassamento)
- .debug_str     0x00000000000236f5       0xb0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_ps.o
-                                       0x2f77 (dimensione prima del rilassamento)
- .debug_str     0x00000000000237a5       0xd1 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_random.o
-                                       0xa2dc (dimensione prima del rilassamento)
- .debug_str     0x0000000000023876      0xd52 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
-                                      0x16ba6 (dimensione prima del rilassamento)
- .debug_str     0x00000000000245c8      0x1b0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_ipv6_nib.o
-                                      0x16c5e (dimensione prima del rilassamento)
- .debug_str     0x0000000000024778      0x42b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
-                                      0x176f4 (dimensione prima del rilassamento)
- .debug_str     0x0000000000024ba3      0x358 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/stdio_native/stdio_native.o
-                                      0x13913 (dimensione prima del rilassamento)
- .debug_str     0x0000000000024efb      0x147 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/tinymt32/tinymt32.o
-                                       0x5dfd (dimensione prima del rilassamento)
- .debug_str     0x0000000000025042      0x204 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/uuid/uuid.o
-                                       0x8332 (dimensione prima del rilassamento)
- .debug_str     0x0000000000025246      0x254 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer_core.o
-                                       0x8e10 (dimensione prima del rilassamento)
- .debug_str     0x000000000002549a      0x2f1 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer.o
-                                       0x9004 (dimensione prima del rilassamento)
- .debug_str     0x000000000002578b      0x11a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph_common/init.o
-                                       0x4f75 (dimensione prima del rilassamento)
- .debug_str     0x00000000000258a5      0x387 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/auto_init/auto_init.o
-                                       0x6796 (dimensione prima del rilassamento)
- .debug_str     0x0000000000025c2c       0xbc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mutex.o
-                                       0x868e (dimensione prima del rilassamento)
- .debug_str     0x0000000000025ce8      0x19a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/async_read.o
-                                      0x134f2 (dimensione prima del rilassamento)
- .debug_str     0x0000000000025e82      0x11d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/div/div.o
-                                       0x64b6 (dimensione prima del rilassamento)
- .debug_str     0x0000000000025f9f      0x36f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/fmt/fmt.o
-                                       0x94f5 (dimensione prima del rilassamento)
- .debug_str     0x000000000002630e      0x185 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6_echo/gnrc_icmpv6_echo.o
+ .debug_str     0x0000000000000000    0x160ea /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/startup.o
+                                      0x167b8 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000160ea     0x7bda /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/application_emcute_mqttsn/main.o
                                       0x17451 (dimensione prima del rilassamento)
- .debug_str     0x0000000000026493      0xc35 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6/gnrc_ipv6.o
-                                      0x18062 (dimensione prima del rilassamento)
- .debug_str     0x00000000000270c8      0x174 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_hdr/gnrc_ipv6_hdr.o
-                                       0xf3d9 (dimensione prima del rilassamento)
- .debug_str     0x000000000002723c      0xc2a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
-                                      0x18b45 (dimensione prima del rilassamento)
- .debug_str     0x0000000000027e66      0x183 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_nc.o
-                                      0x16a19 (dimensione prima del rilassamento)
- .debug_str     0x0000000000027fe9      0x2c5 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-arsm.o
-                                      0x17e17 (dimensione prima del rilassamento)
- .debug_str     0x00000000000282ae      0x120 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_pl.o
-                                      0x176af (dimensione prima del rilassamento)
- .debug_str     0x00000000000283ce      0x388 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-internal.o
-                                      0x17c57 (dimensione prima del rilassamento)
- .debug_str     0x0000000000028756      0x146 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_ft.o
-                                      0x16a75 (dimensione prima del rilassamento)
- .debug_str     0x000000000002889c      0x1e8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-slaac.o
-                                      0x17c69 (dimensione prima del rilassamento)
- .debug_str     0x0000000000028a84      0x343 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ndp/gnrc_ndp.o
-                                      0x17757 (dimensione prima del rilassamento)
- .debug_str     0x0000000000028dc7      0x17a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netapi/gnrc_netapi.o
-                                       0xf479 (dimensione prima del rilassamento)
- .debug_str     0x0000000000028f41      0x5ff /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
-                                      0x17c92 (dimensione prima del rilassamento)
- .debug_str     0x0000000000029540      0x157 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif_device_type.o
-                                      0x13368 (dimensione prima del rilassamento)
- .debug_str     0x0000000000029697       0xdc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/_netif.o
-                                      0x12ea0 (dimensione prima del rilassamento)
- .debug_str     0x0000000000029773      0x213 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_hdr/gnrc_netif_hdr.o
-                                      0x157eb (dimensione prima del rilassamento)
- .debug_str     0x0000000000029986      0x2e2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/init.o
-                                       0x37d5 (dimensione prima del rilassamento)
- .debug_str     0x0000000000029c68      0x176 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/auto_init_netdev_tap.o
-                                      0x14bb5 (dimensione prima del rilassamento)
- .debug_str     0x0000000000029dde      0x4ca /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netreg/gnrc_netreg.o
-                                      0x16d5c (dimensione prima del rilassamento)
- .debug_str     0x000000000002a2a8      0x111 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pkt/gnrc_pkt.o
-                                       0x95ee (dimensione prima del rilassamento)
- .debug_str     0x000000000002a3b9      0x175 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf/gnrc_pktbuf.o
-                                       0xe91b (dimensione prima del rilassamento)
- .debug_str     0x000000000002a52e      0x2f6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf_static/gnrc_pktbuf_static.o
-                                       0xecf0 (dimensione prima del rilassamento)
- .debug_str     0x000000000002a824      0x1f2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock/gnrc_sock.o
-                                      0x16db2 (dimensione prima del rilassamento)
- .debug_str     0x000000000002aa16      0x1d4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/sha1.o
-                                       0x5266 (dimensione prima del rilassamento)
- .debug_str     0x000000000002abea      0x198 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/md5.o
-                                       0x5217 (dimensione prima del rilassamento)
- .debug_str     0x000000000002ad82      0x1a8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/l2util/l2util.o
-                                       0xeaa9 (dimensione prima del rilassamento)
- .debug_str     0x000000000002af2a      0x1a0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/luid/luid.o
-                                       0x5a2c (dimensione prima del rilassamento)
- .debug_str     0x000000000002b0ca     0x2879 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_tap/netdev_tap.o
-                                      0x17c0b (dimensione prima del rilassamento)
- .debug_str     0x000000000002d943      0x110 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netif/netif.o
-                                       0x8f08 (dimensione prima del rilassamento)
- .debug_str     0x000000000002da53       0xac /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/cpuid.o
-                                       0xf00b (dimensione prima del rilassamento)
- .debug_str     0x000000000002daff      0x121 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/hwrng.o
-                                      0x10366 (dimensione prima del rilassamento)
- .debug_str     0x000000000002dc20       0xd6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/random.o
-                                       0x8afc (dimensione prima del rilassamento)
- .debug_str     0x000000000002dcf6       0xd7 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/bitarithm.o
-                                       0x61c3 (dimensione prima del rilassamento)
- .debug_str     0x000000000002ddcd      0x18a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/rmutex.o
-                                       0x9721 (dimensione prima del rilassamento)
- .debug_str     0x000000000002df57       0xd7 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mbox.o
-                                       0x86f4 (dimensione prima del rilassamento)
- .debug_str     0x000000000002e02e      0x1c6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/evtimer/evtimer.o
-                                       0x8e2d (dimensione prima del rilassamento)
- .debug_str     0x000000000002e1f4      0x16e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
-                                      0x173ff (dimensione prima del rilassamento)
- .debug_str     0x000000000002e362      0x200 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_ethernet/gnrc_netif_ethernet.o
-                                      0x166a0 (dimensione prima del rilassamento)
- .debug_str     0x000000000002e562      0x109 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/iolist/iolist.o
-                                       0x9a7d (dimensione prima del rilassamento)
- .debug_str     0x000000000002e66b      0x134 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
-                                       0xd2d5 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001dcc4      0x100 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/board/board_init.o
+                                       0x6c1c (dimensione prima del rilassamento)
+ .debug_str     0x000000000001ddc4      0x154 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/assert.o
+                                       0x5d24 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001df18      0x45e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread.o
+                                       0x9048 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001e376      0x24e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/init.o
+                                       0x8f74 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001e5c4      0x1d6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/msg.o
+                                       0x8752 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001e79a       0xdf /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/panic.o
+                                       0x6109 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001e879      0x159 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/thread_flags.o
+                                       0x869a (dimensione prima del rilassamento)
+ .debug_str     0x000000000001e9d2      0x1a2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/sched.o
+                                       0x8ab0 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001eb74      0x2cd /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/syscalls.o
+                                      0x15c3c (dimensione prima del rilassamento)
+ .debug_str     0x000000000001ee41      0x2d7 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/irq_cpu.o
+                                      0x13da3 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001f118      0x9ed /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/native_cpu.o
+                                      0x14f06 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001fb05       0x5d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/tramp.o
+                                         0xa6 (dimensione prima del rilassamento)
+ .debug_str     0x000000000001fb62      0x66e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/emcute/emcute.o
+                                      0x164b1 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000201d0     0x1418 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock_udp/gnrc_sock_udp.o
+                                      0x176c6 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000215e8      0x35d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_udp/gnrc_udp.o
+                                      0x16afe (dimensione prima del rilassamento)
+ .debug_str     0x0000000000021945      0x15b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/inet_csum/inet_csum.o
+                                       0x863e (dimensione prima del rilassamento)
+ .debug_str     0x0000000000021aa0      0x1ed /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr.o
+                                       0x8021 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000021c8d      0x155 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_to_str.o
+                                       0x67e5 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000021de2      0x14f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ipv6_addr/ipv6_addr_from_str.o
+                                       0x8828 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000021f31      0x18f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/native-drivers/native-led.o
+                                       0x6c6e (dimensione prima del rilassamento)
+ .debug_str     0x00000000000220c0      0x129 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/pm.o
+                                       0xfeea (dimensione prima del rilassamento)
+ .debug_str     0x00000000000221e9      0xc3b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/uart.o
+                                      0x10f6e (dimensione prima del rilassamento)
+ .debug_str     0x0000000000022e24      0x15f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/timer.o
+                                       0xffef (dimensione prima del rilassamento)
+ .debug_str     0x0000000000022f83      0x11e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/ps/ps.o
+                                       0x845a (dimensione prima del rilassamento)
+ .debug_str     0x00000000000230a1      0x210 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/tinymt32.o
+                                       0x5f51 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000232b1      0x270 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell/shell.o
+                                       0x84e8 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000023521      0x110 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/shell_commands.o
+                                       0x762f (dimensione prima del rilassamento)
+ .debug_str     0x0000000000023631       0xc8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_sys.o
+                                       0x5e4a (dimensione prima del rilassamento)
+ .debug_str     0x00000000000236f9       0xb0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_ps.o
+                                       0x2f7b (dimensione prima del rilassamento)
+ .debug_str     0x00000000000237a9       0xd1 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_random.o
+                                       0xa2e0 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002387a      0xd52 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_netif.o
+                                      0x16baa (dimensione prima del rilassamento)
+ .debug_str     0x00000000000245cc      0x1b0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_ipv6_nib.o
+                                      0x16c62 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002477c      0x42b /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/shell_commands/sc_gnrc_icmpv6_echo.o
+                                      0x176f8 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000024ba7      0x358 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/stdio_native/stdio_native.o
+                                      0x13917 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000024eff      0x147 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/tinymt32/tinymt32.o
+                                       0x5e01 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000025046      0x204 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/uuid/uuid.o
+                                       0x8336 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002524a      0x254 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer_core.o
+                                       0x8e14 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002549e      0x2f1 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/xtimer/xtimer.o
+                                       0x9008 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002578f      0x11a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph_common/init.o
+                                       0x4f79 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000258a9      0x387 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/auto_init/auto_init.o
+                                       0x679a (dimensione prima del rilassamento)
+ .debug_str     0x0000000000025c30       0xbc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mutex.o
+                                       0x8692 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000025cec      0x19a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/cpu/async_read.o
+                                      0x134f6 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000025e86      0x11d /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/div/div.o
+                                       0x64ba (dimensione prima del rilassamento)
+ .debug_str     0x0000000000025fa3      0x36f /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/fmt/fmt.o
+                                       0x94f9 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000026312      0x185 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6_echo/gnrc_icmpv6_echo.o
+                                      0x17455 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000026497      0xc35 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6/gnrc_ipv6.o
+                                      0x18066 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000270cc      0x174 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_hdr/gnrc_ipv6_hdr.o
+                                       0xf3dd (dimensione prima del rilassamento)
+ .debug_str     0x0000000000027240      0xc2a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib.o
+                                      0x18b49 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000027e6a      0x183 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_nc.o
+                                      0x16a1d (dimensione prima del rilassamento)
+ .debug_str     0x0000000000027fed      0x2c5 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-arsm.o
+                                      0x17e1b (dimensione prima del rilassamento)
+ .debug_str     0x00000000000282b2      0x120 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_pl.o
+                                      0x176b3 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000283d2      0x388 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-internal.o
+                                      0x17c5b (dimensione prima del rilassamento)
+ .debug_str     0x000000000002875a      0x146 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/nib_ft.o
+                                      0x16a79 (dimensione prima del rilassamento)
+ .debug_str     0x00000000000288a0      0x1e8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ipv6_nib/_nib-slaac.o
+                                      0x17c6d (dimensione prima del rilassamento)
+ .debug_str     0x0000000000028a88      0x343 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_ndp/gnrc_ndp.o
+                                      0x1775b (dimensione prima del rilassamento)
+ .debug_str     0x0000000000028dcb      0x17a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netapi/gnrc_netapi.o
+                                       0xf47d (dimensione prima del rilassamento)
+ .debug_str     0x0000000000028f45      0x5ff /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif.o
+                                      0x17c96 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000029544      0x157 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/gnrc_netif_device_type.o
+                                      0x1336c (dimensione prima del rilassamento)
+ .debug_str     0x000000000002969b       0xdc /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif/_netif.o
+                                      0x12ea4 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000029777      0x213 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_hdr/gnrc_netif_hdr.o
+                                      0x157ef (dimensione prima del rilassamento)
+ .debug_str     0x000000000002998a      0x2e2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/init.o
+                                       0x37d9 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000029c6c      0x176 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_init_devs/auto_init_netdev_tap.o
+                                      0x14bb9 (dimensione prima del rilassamento)
+ .debug_str     0x0000000000029de2      0x4ca /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netreg/gnrc_netreg.o
+                                      0x16d60 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002a2ac      0x111 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pkt/gnrc_pkt.o
+                                       0x95f2 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002a3bd      0x175 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf/gnrc_pktbuf.o
+                                       0xe91f (dimensione prima del rilassamento)
+ .debug_str     0x000000000002a532      0x2f6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_pktbuf_static/gnrc_pktbuf_static.o
+                                       0xecf4 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002a828      0x1f2 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_sock/gnrc_sock.o
+                                      0x16db6 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002aa1a      0x1d4 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/sha1.o
+                                       0x526a (dimensione prima del rilassamento)
+ .debug_str     0x000000000002abee      0x198 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/hashes/md5.o
+                                       0x521b (dimensione prima del rilassamento)
+ .debug_str     0x000000000002ad86      0x1a8 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/l2util/l2util.o
+                                       0xeaad (dimensione prima del rilassamento)
+ .debug_str     0x000000000002af2e      0x1a0 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/luid/luid.o
+                                       0x5a30 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002b0ce     0x2879 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_tap/netdev_tap.o
+                                      0x17c0f (dimensione prima del rilassamento)
+ .debug_str     0x000000000002d947      0x110 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netif/netif.o
+                                       0x8f0c (dimensione prima del rilassamento)
+ .debug_str     0x000000000002da57       0xac /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/cpuid.o
+                                       0xf00f (dimensione prima del rilassamento)
+ .debug_str     0x000000000002db03      0x121 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/periph/hwrng.o
+                                      0x1036a (dimensione prima del rilassamento)
+ .debug_str     0x000000000002dc24       0xd6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/random/random.o
+                                       0x8b00 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002dcfa       0xd7 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/bitarithm.o
+                                       0x61c7 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002ddd1      0x18a /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/rmutex.o
+                                       0x9725 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002df5b       0xd7 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/core/mbox.o
+                                       0x86f8 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002e032      0x1c6 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/evtimer/evtimer.o
+                                       0x8e31 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002e1f8      0x16e /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_icmpv6/gnrc_icmpv6.o
+                                      0x17403 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002e366      0x200 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/gnrc_netif_ethernet/gnrc_netif_ethernet.o
+                                      0x166a4 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002e566      0x109 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/iolist/iolist.o
+                                       0x9a81 (dimensione prima del rilassamento)
+ .debug_str     0x000000000002e66f      0x134 /home/ivan/Scrivania/Internet_of_Things/InternetOfThings19-20/Assignment2/emcute_MQTTSN/bin/native/netdev_eth/netdev_eth.o
+                                       0xd2d9 (dimensione prima del rilassamento)
 
 .debug_loc
  *(.debug_loc)
