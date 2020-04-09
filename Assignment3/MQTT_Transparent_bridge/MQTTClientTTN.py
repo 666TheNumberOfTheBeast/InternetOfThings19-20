@@ -1,4 +1,4 @@
-import time
+#import time
 import ttn
 import json
 import datetime
@@ -18,7 +18,7 @@ class MQTTClientTTN:
 
     def uplink_callback(self, msg, client):
       print("Received uplink from ", msg.dev_id)
-      print(msg)
+      #print(msg)
       #print(msg.payload_fields)
 
       # obj is a unicode string
@@ -47,13 +47,14 @@ class MQTTClientTTN:
 
       # Since LoRa time is wrong, add the correct one
       now = datetime.datetime.now()
-      print("Current date and time : ")
-      print(now.strftime("%d-%m-%Y %H:%M:%S"))
+      #print("Current date and time : ")
+      #print(now.strftime("%d-%m-%Y %H:%M:%S"))
       js["dateTime"] = now.strftime("%d-%m-%Y %H:%M:%S")
 
-      print(js)
+      #print(js)
 
       # Send JSON to the AWS broker via the MQTTClient adding the ID of the station
+      # json.dumps convert into JSON
       self.myMQTTClient.publish("sensor/station" + id, json.dumps(js))
       return True
 

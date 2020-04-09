@@ -1,4 +1,5 @@
 /* Generated file do not edit */
+#define DISABLE_LORAMAC_DUTYCYCLE 1
 #define DEVELHELP 1
 #define CPU_FAM_STM32L0 1
 #define STM32L072xx 1

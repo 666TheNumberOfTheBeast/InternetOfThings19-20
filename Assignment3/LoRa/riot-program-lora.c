@@ -93,7 +93,7 @@ const double MAX_VALUE_RAIN_HEIGHT = 50;
 // Global variables
 // THREAD_STACKSIZE_DEFAULT of the main stack doesn't suffice station thread task
 char station_thread_stack[THREAD_STACKSIZE_LARGE];
-
+int running = 0;
 
 static int loramac_tx_handler(int argc, char **argv) {
     if (argc < 3) {
@@ -148,7 +148,7 @@ static int loramac_tx_handler(int argc, char **argv) {
 
       case SEMTECH_LORAMAC_TX_CNF_FAILED:
         puts("Fail to send: no ACK received");
-        return 1;
+        return -1;
     }
 
     puts("Message sent with success");
@@ -176,7 +176,9 @@ static void *station_thread(void *arg) {
     char id[37];
     uuid_to_string(&uid, id);
 
-    while(1) {
+    running = 1;
+
+    while(running) {
       double temperature = genValue(MIN_VALUE_TEMPERATURE, MAX_VALUE_TEMPERATURE);
       double humidity = genValue(MIN_VALUE_HUMIDITY, MAX_VALUE_HUMIDITY);
       double windDirection = genValue(MIN_VALUE_WIND_DIRECTION, MAX_VALUE_WIND_DIRECTION);
@@ -215,16 +217,16 @@ static void *station_thread(void *arg) {
           printf("Error: sending message with loramac failed!\n");
           return NULL;
         }
-        // Wait and retry if restriction met
+        // Wait and retry if restriction met or no ack received
         else if (res < 0)
-          xtimer_usleep(1000);
+          xtimer_usleep(1500);
       } while (res < 0);
 
       // Sleeps 5 seconds
       xtimer_sleep(5);
     }
 
-    return NULL;    // should never be reached
+    return NULL;    // Should be reached only when user insert stop
 }
 
 static int cmd_start(int argc, char **argv) {
@@ -242,8 +244,26 @@ static int cmd_start(int argc, char **argv) {
     return 0;
 }
 
+static int cmd_stop(int argc, char **argv) {
+    // Trick to invoke the cmd, it never will be called with argc < 1
+    if (argc < 1) {
+        printf("Usage: %s\n", argv[0]);
+        return 1;
+    }
+
+    if (!running)
+      puts("No station to stop");
+
+    else {
+      running = 0;
+      puts("Station stopped. Press Ctrl+c to close netcat");
+    }
+    return 0;
+}
+
 static const shell_command_t shell_commands[] = {
-    { "start", "start a station", cmd_start }, // My addition
+    { "start", "start a station", cmd_start },
+    { "stop", "stop a station", cmd_stop },
     { NULL, NULL, NULL }
 };
 

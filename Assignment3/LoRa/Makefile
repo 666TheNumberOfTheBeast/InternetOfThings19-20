@@ -34,6 +34,8 @@ USEMODULE += xtimer
 USEMODULE += uuid
 # For float
 USEMODULE += printf_float
+# To avoid to wait to send
+CFLAGS=-DDISABLE_LORAMAC_DUTYCYCLE
 # end additions
 
 FEATURES_OPTIONAL += periph_eeprom
