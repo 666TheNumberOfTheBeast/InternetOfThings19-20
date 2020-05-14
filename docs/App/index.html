@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Internet of Things 19-20 App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta name="description" content="App of the Internet of Things 19-20 course @ Sapienza University of Rome">
+  <meta name="theme-color" content="#0071c5">
+  <!-- Origin Trial Token, feature = Generic Sensors, origin = https://intel.github.io, expires = 2018-02-27 -->
+	<meta name="keywords" content="" />
+	<meta name="author" content="666TheNumberOfTheBeast" />
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/main.js"></script>
+  <!--<script src="js/edgeComputing.js"></script>
+  <script src="js/cloudComputing.js"></script>-->
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+  <script src="js/aws.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+  <script src="js/pahoMQTTClient.js"></script>
+</head>
+
+<body>
+  <div id="container" class="container" align="center">
+    <div id="intro" class="animation">
+      <img class="logo" src="images/logo.jpg"/>
+      <p class="titleAnimation">
+        I will measure if you are standing still or not
+      </p>
+    </div>
+
+    <br><br>
+
+    <p id="btns" class="buttonsAnimation">
+      <span id="cloudBtn" class="btn btn-primary btn-lg btn-custom">Cloud Computing</span>
+      <span id="edgeBtn" class="btn btn-primary btn-lg btn-custom">Edge Computing</span>
+    </p>
+  </div>
+
+  <div id="loader" class="loader hide"></div>
+  <p id="measure" class="measure"></p>
+
+</body>
+</html>
