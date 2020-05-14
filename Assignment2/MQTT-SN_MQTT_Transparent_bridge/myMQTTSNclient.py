@@ -53,7 +53,7 @@ class Callback:
         self.myMQTTClient.initMQTTclient()
 
     # Send JSON to the AWS broker via the MQTTClient adding the ID of the station
-    self.myMQTTClient.publish("sensor/station" + id, payload)
+    self.myMQTTClient.publish("sensor/station/" + id, payload)
     return True
 
   def deliveryComplete(self, msgid):

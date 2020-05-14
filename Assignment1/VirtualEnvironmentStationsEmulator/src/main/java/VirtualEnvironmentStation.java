@@ -141,7 +141,7 @@ public class VirtualEnvironmentStation implements Runnable {
             json.addProperty("windIntensity", windIntensity);
             json.addProperty("rainHeight", rainHeight);
 
-            mqttClient.publish("sensor/station"+id, json.toString(), false);
+            mqttClient.publish("sensor/station/"+id, json.toString(), false);
 
             try{
                 Thread.sleep(5000);

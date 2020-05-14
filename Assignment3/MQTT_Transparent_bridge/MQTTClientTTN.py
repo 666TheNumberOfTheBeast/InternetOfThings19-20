@@ -55,7 +55,7 @@ class MQTTClientTTN:
 
       # Send JSON to the AWS broker via the MQTTClient adding the ID of the station
       # json.dumps convert into JSON
-      self.myMQTTClient.publish("sensor/station" + id, json.dumps(js))
+      self.myMQTTClient.publish("sensor/station/" + id, json.dumps(js))
       return True
 
     def initMQTTclientTTN(self):
