@@ -13,8 +13,7 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <script src="js/main.js"></script>
-  <!--<script src="js/edgeComputing.js"></script>
-  <script src="js/cloudComputing.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
   <script src="js/aws.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
@@ -30,13 +29,20 @@
       </p>
     </div>
 
-    <br><br>
+    <div id="space">
+      <br><br>
+    </div>
 
     <p id="btns" class="buttonsAnimation">
       <span id="cloudBtn" class="btn btn-primary btn-lg btn-custom">Cloud Computing</span>
       <span id="edgeBtn" class="btn btn-primary btn-lg btn-custom">Edge Computing</span>
     </p>
+
+    <p id="historyBtn" class="translateBtnUp hide">
+      <span class="btn btn-secondary btn-lg btn-custom">Show last hour values</span>
+    </p>
   </div>
+
 
   <div id="loader" class="loader hide"></div>
   <p id="measure" class="measure"></p>

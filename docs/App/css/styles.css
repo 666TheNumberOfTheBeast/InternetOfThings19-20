@@ -1,6 +1,6 @@
 body {
   background-color: white;
-  overflow: hidden;
+  overflow: auto;
   vertical-align: top;
   text-align: center;
   color: black;
@@ -72,8 +72,8 @@ body {
     animation: spin 1.5s linear infinite;
   }
 
-  html {
-    overflow: auto;
+  #space {
+    display: none;
   }
 }
 
@@ -90,10 +90,6 @@ body {
     left: 43%;
     -webkit-animation: spin 1.5s linear infinite; /* Safari */
     animation: spin 1.5s linear infinite;
-  }
-
-  html {
-    overflow: auto;
   }
 }
 
@@ -213,19 +209,27 @@ body {
   100% { transform:  translate(0px,0%)}
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   @keyframes translateBtnUpAnimation {
-    100% { transform:  translate(0px,-100%)}
+    100% { transform:  translate(0px,-80%)}
   }
 
   @keyframes translateBtnDownAnimation {
-    0% { transform:  translate(0px,-100%)}
+    0% { transform:  translate(0px,-80%)}
     100% { transform:  translate(0px,0%)}
   }
 }
 
+@media only screen and (max-height: 500px) {
+  @keyframes translateBtnUpAnimation {
+    100% { transform:  translate(0px,-70%)}
+  }
 
-
+  @keyframes translateBtnDownAnimation {
+    0% { transform:  translate(0px,-70%)}
+    100% { transform:  translate(0px,0%)}
+  }
+}
 
 .measure {
     width: 100%;
@@ -296,8 +300,8 @@ body {
   color: #fff;
   border: 1px solid #4aca85; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background: #5ed092 !important;
-    border-color: #5ed092 !important; }
+    background: #7bed9f /*#5ed092*/ !important;
+    border-color: #7bed9f /*#5ed092*/ !important; }
   .btn-primary.btn-outline {
     background: transparent;
     color: #4aca85;
@@ -305,6 +309,22 @@ body {
     .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
       background: #4aca85;
       color: #fff; }
+
+/* My addition */
+.btn-secondary {
+  background: #3498db;
+  color: #fff;
+  border: 1px solid #3498db; }
+  .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+    background: #74b9ff !important;
+    border-color: #74b9ff !important; }
+    .btn-secondary.btn-outline {
+      background: transparent;
+      color: #3498db;
+      border: 1px solid #3498db; }
+      .btn-secondary.btn-outline:hover, .btn-secondary.btn-outline:focus, .btn-secondary.btn-outline:active {
+        background: #3498db;
+        color: #fff; }
 
 .btn-custom {
   font-size: 16px;

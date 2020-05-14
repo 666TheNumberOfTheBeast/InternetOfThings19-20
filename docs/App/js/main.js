@@ -1,35 +1,53 @@
 "use strict";
 
 window.onload = function init() {
+
   // Buttons handling
   var container = document.getElementById("container");
   var intro     = document.getElementById("intro");
   var btns      = document.getElementById("btns");
+  var historyBtn = document.getElementById("historyBtn");
   var cloudBtnActivated = false;
   var edgeBtnActivated  = false;
 
   document.getElementById("cloudBtn").onclick = function() {
     cloudBtnActivated = !cloudBtnActivated;
 
-    if(cloudBtnActivated && !edgeBtnActivated)        up();
-    else if(!cloudBtnActivated && !edgeBtnActivated)  down();
+    // Check for animations
+    if(!edgeBtnActivated)
+      cloudBtnActivated == true ? up() : down();
+    // Check if both buttons are activated and exclude the oldest
+    else if(cloudBtnActivated)
+      edgeBtnActivated = false;
   };
 
   document.getElementById("edgeBtn").onclick = function() {
     edgeBtnActivated = !edgeBtnActivated;
 
-    if(edgeBtnActivated && !cloudBtnActivated)        up();
-    else if(!cloudBtnActivated && !edgeBtnActivated)  down();
+    // Check for animations
+    //if(edgeBtnActivated && !cloudBtnActivated)        up();
+    //else if(!cloudBtnActivated && !edgeBtnActivated)  down();
+
+    // Check for animations
+    if(!cloudBtnActivated)
+      edgeBtnActivated == true ? up() : down();
+    // Check if both buttons are activated and exclude the oldest
+    else if(edgeBtnActivated)
+      cloudBtnActivated = false;
   };
 
   function up() {
     intro.classList.remove("scaleDown");
     container.classList.remove("translateDown");
     btns.classList.remove("translateBtnDown");
+    historyBtn.classList.remove("translateBtnDown");
 
     intro.setAttribute("class", "scaleUp");
     container.setAttribute("class", "translateUp");
     btns.setAttribute("class", "translateBtnUp");
+    historyBtn.setAttribute("class", "translateBtnUp");
+
+    $("#historyBtn").fadeIn(800);
 
     setTimeout(loading, 1000);
   }
@@ -38,10 +56,14 @@ window.onload = function init() {
     intro.classList.remove("scaleUp");
     container.classList.remove("translateUp");
     btns.classList.remove("translateBtnUp");
+    historyBtn.classList.remove("translateBtnUp");
 
     intro.setAttribute("class", "scaleDown");
     container.setAttribute("class", "translateDown");
     btns.setAttribute("class", "translateBtnDown");
+    historyBtn.setAttribute("class", "translateBtnDown")
+
+    $("#historyBtn").fadeOut(800);
 
     stop();
   }
@@ -126,16 +148,18 @@ window.onload = function init() {
   }
 
   var accelerometer = null;
+  var topic = "sensor/accelerometer/" + uuid;
+  var firstSetMeasureCall = true;
 
   function start() {
     if(accelerometer != null) {
-      accelerometer.addEventListener('reading', readListener);
+      //accelerometer.addEventListener('reading', readListener);
+      firstSetMeasureCall = true;
       accelerometer.start();
       return;
     }
 
     try {
-      var topic = "sensor/accelerometer/" + uuid;
       // DEBUG
       //mqttClient.sub("sensor/accelerometer/+");
       //mqttClient.pub("hi all", topic);
@@ -143,27 +167,7 @@ window.onload = function init() {
       // Read once per second
       accelerometer = new Accelerometer({ frequency: 1 });
       accelerometer.addEventListener('error', errorListener);
-      accelerometer.addEventListener('reading', function(event) {
-          var now = {x:event.target.x, y:event.target.y, z:event.target.z};
-          values.push(now);
-
-          // Cloud-based Deployment
-          /*if(values.length > 1) {
-            mqttClient.pub(createJsonString(values), topic);
-            values.shift();
-          }//*/
-
-          // Edge-based Deployment
-          if(values.length > 1) {
-            var check = isStanding(now);
-            if(check)
-              setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>you're standing");
-            else
-              setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>you're moving");
-
-            mqttClient.pub(createJsonString(check), topic);
-          }//*/
-      });
+      accelerometer.addEventListener('reading', readListener);
       accelerometer.start();
     } catch (error) {
       // Handle construction errors
@@ -191,9 +195,31 @@ window.onload = function init() {
     }*/
   }
 
+  function readListener(event) {
+    var now = {x:event.target.x, y:event.target.y, z:event.target.z};
+    values.push(now);
+
+    // Cloud-based Deployment
+    if(cloudBtnActivated && values.length > 1) {
+      mqttClient.pub(createJsonString(values), topic);
+      values.shift();
+    }
+
+    // Edge-based Deployment
+    if(edgeBtnActivated && values.length > 1) {
+      var check = isStanding(now);
+      if(check)
+        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>you're standing");
+      else
+        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>you're moving");
+
+      mqttClient.pub(createJsonString(check), topic);
+    }
+  }
+
   function stop() {
     if(accelerometer != null) {
-      accelerometer.removeEventListener("reading", readListener);
+      //accelerometer.removeEventListener("reading", readListener);
       accelerometer.stop();
       setMeasureText("");
     }
@@ -202,6 +228,14 @@ window.onload = function init() {
   function setMeasureText(text) {
     if(measureText == null)   return;
     measureText.innerHTML = text;
+
+    // Check if scrolling is necessary
+    if(firstSetMeasureCall) {
+      firstSetMeasureCall = false;
+      $('html, body').animate({
+            scrollTop: $("#measure").offset().top
+        }, 500);
+    }
   }
 
   // Check if the user is standing (do side effect on values array removing the old element)
