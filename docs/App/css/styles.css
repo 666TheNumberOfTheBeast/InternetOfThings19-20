@@ -29,13 +29,13 @@ body {
 }
 
 .loader {
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #000; /*#3498db;*/ /* Blue */
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #000; /*#3498db;*/ /* Blue */
   border-radius: 50%;
   width: 40px;
   height: 40px;
   position: fixed;
-  top: 60%;
+  top: 80%;
   left: 48%;
   -webkit-animation: spin 1.5s linear infinite; /* Safari */
   animation: spin 1.5s linear infinite;
@@ -60,13 +60,13 @@ body {
   }
 
   .loader {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #000; /*#3498db;*/ /* Blue */
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #000; /*#3498db;*/ /* Blue */
     border-radius: 50%;
     width: 40px;
     height: 40px;
     position: fixed;
-    top: 60%;
+    top: 80%;
     left: 46%;
     -webkit-animation: spin 1.5s linear infinite; /* Safari */
     animation: spin 1.5s linear infinite;
@@ -80,13 +80,13 @@ body {
 /* For width 500px and smaller: */
 @media only screen and (max-width: 500px) {
   .loader {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #000; /*#3498db;*/ /* Blue */
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #000; /*#3498db;*/ /* Blue */
     border-radius: 50%;
     width: 40px;
     height: 40px;
     position: fixed;
-    top: 60%;
+    top: 80%;
     left: 43%;
     -webkit-animation: spin 1.5s linear infinite; /* Safari */
     animation: spin 1.5s linear infinite;
@@ -222,11 +222,11 @@ body {
 
 @media only screen and (max-height: 500px) {
   @keyframes translateBtnUpAnimation {
-    100% { transform:  translate(0px,-70%)}
+    100% { transform:  translate(0px,-40%)}
   }
 
   @keyframes translateBtnDownAnimation {
-    0% { transform:  translate(0px,-70%)}
+    0% { transform:  translate(0px,-40%)}
     100% { transform:  translate(0px,0%)}
   }
 }
@@ -235,7 +235,8 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    top: 60%;
+    /*top: 60%;*/
+    /*margin-top: -10%;*/
 }
 
 
@@ -299,32 +300,32 @@ body {
   background: #4aca85;
   color: #fff;
   border: 1px solid #4aca85; }
-  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  .btn-primary:hover/*, .btn-primary:focus, .btn-primary:active*/ {
     background: #7bed9f /*#5ed092*/ !important;
     border-color: #7bed9f /*#5ed092*/ !important; }
   .btn-primary.btn-outline {
     background: transparent;
     color: #4aca85;
     border: 1px solid #4aca85; }
-    .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-      background: #4aca85;
-      color: #fff; }
+  .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
+    background: #4aca85;
+    color: #fff; }
 
 /* My addition */
 .btn-secondary {
   background: #3498db;
   color: #fff;
   border: 1px solid #3498db; }
-  .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+  .btn-secondary:hover/*, .btn-secondary:focus, .btn-secondary:active*/ {
     background: #74b9ff !important;
     border-color: #74b9ff !important; }
-    .btn-secondary.btn-outline {
-      background: transparent;
-      color: #3498db;
-      border: 1px solid #3498db; }
-      .btn-secondary.btn-outline:hover, .btn-secondary.btn-outline:focus, .btn-secondary.btn-outline:active {
-        background: #3498db;
-        color: #fff; }
+  .btn-secondary.btn-outline {
+    background: transparent;
+    color: #3498db;
+    border: 1px solid #3498db; }
+  .btn-secondary.btn-outline:hover, .btn-secondary.btn-outline:focus, .btn-secondary.btn-outline:active {
+    background: #3498db;
+    color: #fff; }
 
 .btn-custom {
   font-size: 16px;

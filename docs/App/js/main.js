@@ -3,12 +3,17 @@
 window.onload = function init() {
 
   // Buttons handling
-  var container = document.getElementById("container");
-  var intro     = document.getElementById("intro");
-  var btns      = document.getElementById("btns");
+  var container  = document.getElementById("container");
+  var intro      = document.getElementById("intro");
+  var btns       = document.getElementById("btns");
   var historyBtn = document.getElementById("historyBtn");
-  var cloudBtnActivated = false;
-  var edgeBtnActivated  = false;
+
+  var historyBtnJQ = $("#historyBtn");
+  var historyChartJQ = $("#historyChart");
+
+  var cloudBtnActivated   = false;
+  var edgeBtnActivated    = false;
+  var historyBtnActivated = false;
 
   document.getElementById("cloudBtn").onclick = function() {
     cloudBtnActivated = !cloudBtnActivated;
@@ -47,7 +52,8 @@ window.onload = function init() {
     btns.setAttribute("class", "translateBtnUp");
     historyBtn.setAttribute("class", "translateBtnUp");
 
-    $("#historyBtn").fadeIn(800);
+    historyBtn.style.display = "none"; // To fix first fadeIn
+    historyBtnJQ.fadeIn(800);
 
     setTimeout(loading, 1000);
   }
@@ -63,15 +69,21 @@ window.onload = function init() {
     btns.setAttribute("class", "translateBtnDown");
     historyBtn.setAttribute("class", "translateBtnDown")
 
-    $("#historyBtn").fadeOut(800);
+    historyBtnJQ.fadeOut(800);
 
     stop();
   }
-  // End buttons handling
 
+  historyBtn.onclick = function () {
+    historyBtnActivated = !historyBtnActivated;
+    historyBtnActivated ? getLastHourDataFromDB() : historyChartJQ.fadeOut();
+  }
+  // End buttons handling
 
   // Global variables
   var measureText = document.getElementById('measure');
+  var measureTextJQ = $("#measure");
+  var loader = document.getElementById("loader");
   var values = [];
   var fired = false;
 
@@ -103,6 +115,8 @@ window.onload = function init() {
       mqttClient.conn(callback);
   });
 
+  var docClient = new AWS.DynamoDB.DocumentClient();
+
   // Callback for the MQTT client
   function callback() {
     fired = true;
@@ -111,20 +125,19 @@ window.onload = function init() {
       main();
   }
 
-  // Function to invoke when a button is activated. I don't call directly main() because
-  // the MQTT client connection is async
+  // Function to invoke when a button is activated and the translate up movement is performed.
+  // I don't call directly main() because the MQTT client connection is async
   function loading() {
+    loader.style.display = "initial";
+    firstSetMeasureCall = true;
+
     // Check if the callback is invoked before that a button is pressed (fast connection)
     if(fired)
       main();
-    else
-      document.getElementById("loader").style.display = "initial";
   }
 
   // Function to invoke when a button is activated and the MQTT client has tried connecting to the cloud
   function main() {
-    document.getElementById("loader").style.display = "none";
-
     if(!mqttClient.isConn()) {
       setMeasureText("Cannot connect to the cloud");
       return;
@@ -138,8 +151,7 @@ window.onload = function init() {
         }
         start();
       }).catch(err => {
-        console.log("Integration with Permissions API is not enabled, still try to start");
-        start();
+        setMeasureText("Integration with Permissions API is not enabled");
       });
     /*}
 
@@ -153,8 +165,6 @@ window.onload = function init() {
 
   function start() {
     if(accelerometer != null) {
-      //accelerometer.addEventListener('reading', readListener);
-      firstSetMeasureCall = true;
       accelerometer.start();
       return;
     }
@@ -172,27 +182,12 @@ window.onload = function init() {
     } catch (error) {
       // Handle construction errors
       setMeasureText(error.message);
-      //console.log(error.name, error.message);
-
-      /*if (error.name === 'SecurityError') {
-          console.log('Sensor construction was blocked by the Feature Policy.');
-      } else if (error.name === 'ReferenceError') {
-          console.log('Sensor is not supported by the User Agent.');
-      } else {
-          throw error;
-      }*/
     }
   }
 
   function errorListener(event) {
     // Handle runtime errors
     setMeasureText(event.error.message);
-
-    /*if (event.error.name === 'NotAllowedError') {
-        console.log('Permission to access sensor was denied.');
-    } else if (event.error.name === 'NotReadableError' ) {
-        console.log('Cannot connect to the sensor.');
-    }*/
   }
 
   function readListener(event) {
@@ -218,22 +213,29 @@ window.onload = function init() {
   }
 
   function stop() {
-    if(accelerometer != null) {
-      //accelerometer.removeEventListener("reading", readListener);
+    if(accelerometer != null)
       accelerometer.stop();
-      setMeasureText("");
-    }
+
+    loader.style.display = "none"; // It should not be necessary, just for safety
+    setMeasureText("");
   }
 
   function setMeasureText(text) {
     if(measureText == null)   return;
+    if(text == "")
+      measureTextJQ.fadeOut(320);
+
     measureText.innerHTML = text;
 
     // Check if scrolling is necessary
     if(firstSetMeasureCall) {
       firstSetMeasureCall = false;
+      //historyBtnJQ.fadeIn(800);
+      measureTextJQ.fadeIn(800);
+      loader.style.display = "none";
+
       $('html, body').animate({
-            scrollTop: $("#measure").offset().top
+            scrollTop: $("#measure").offset().top - 70
         }, 500);
     }
   }
@@ -241,8 +243,9 @@ window.onload = function init() {
   // Check if the user is standing (do side effect on values array removing the old element)
   function isStanding(now) {
     var before = values.shift();
-    var threshold = 0.3;
-    if((now.x - before.x > threshold) || (now.y - before.y > threshold) || (now.z - before.z > threshold))
+    //var threshold = 0.25;
+    // TODO
+    if((now.x - before.x > 0.3) /*|| (now.y - before.y > 0.23) || (now.z - before.z > 0.25)*/)
       return false;
     return true;
   }
@@ -257,7 +260,7 @@ window.onload = function init() {
       var s = "{ \"uuid\":\"" + uuid + "\", \"datetime\": \"" + getDateTime() + "\"";
 
       var elem = obj[0];
-      s += ", \"beforex\":\"" + elem.x + "\", \"beforeY\":\"" + elem.y + "\", \"beforeZ\":\"" + elem.z + "\"";
+      s += ", \"beforeX\":\"" + elem.x + "\", \"beforeY\":\"" + elem.y + "\", \"beforeZ\":\"" + elem.z + "\"";
       elem = obj[1];
       s += ", \"nowX\":\"" + elem.x + "\", \"nowY\":\"" + elem.y + "\", \"nowZ\":\"" + elem.z + "\"";
 
@@ -301,6 +304,180 @@ window.onload = function init() {
       return '0' + number;
     else
       return number;
+  }
+
+  // TODO
+  // Query the DB to get values received during the last hour of the activated button
+  // Se non funziona between allora usare formato data 2015-12-21T17:42:34Z
+  function getLastHourDataFromDB() {
+    console.log("Querying for last hour values...\n");
+
+    var dateTime = getDateTime();
+    var params = {
+      TableName : "VirtualEnvironmentStationsDB",
+      ProjectionExpression: "Id, #dt, Payload",
+      ExpressionAttributeNames:{
+          "#dt": "dateTime"
+      },
+      FilterExpression: "#dt between :start_h and :end_h",
+      ExpressionAttributeValues: {
+          ":start_h": dateTime[1],
+          ":end_h": dateTime[0],
+      }
+    };
+
+    docClient.scan(params, onScan);
+
+    function onScan(err, data) {
+        if (err) {
+            console.log("Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2));
+        } else {
+            // Print all the values
+            console.log("Scanning succeeded.\n");
+
+            // Map where to store station objects
+            var stations = new Map();
+
+            data.Items.forEach(function(stationData) {
+                var value = stations.get(stationData.Id);
+
+                if (value == undefined) {
+                  // Object to associate each stationId with two array of values
+                  var station = {id:"", sensorValues:[], dateTimes:[]};
+
+                  station.sensorValues.push(stationData.Payload[sensor]);
+                  station.dateTimes.push(stationData.dateTime);
+                  stations.set(stationData.Id, station);
+                }
+                else {
+                  value.sensorValues.push(stationData.Payload[sensor]);
+                  value.dateTimes.push(stationData.dateTime);
+                }
+            });
+
+            // Continue scanning if we have more data (per scan 1MB limitation)
+            if (typeof data.LastEvaluatedKey != "undefined") {
+                params.ExclusiveStartKey = data.LastEvaluatedKey;
+                docClient.scan(params, onScan);
+            }
+
+            // Clean area where to put the new charts
+            var area = $("#history-charts");
+            area.html("");
+
+            var isEmpty = true;
+
+            // Draw a chart for each station
+            for (let [key, value] of stations.entries()) {
+              //console.log('key is ' + key + ', value is ' + value);
+              createCardForChart(area, key);
+              drawLineChart(key, sensor, value.dateTimes, value.sensorValues);
+              isEmpty = false;
+            }
+
+            if (isEmpty)
+              alert("No station sent data in the past hour");
+            else {
+              //Set a timeout waiting for the creation of the new elements
+              setTimeout(function() {
+                window.location = "#history-chart-pos-for-scrolling";
+              },
+              500);
+            }
+        }
+    }
+  }
+
+  // TODO
+  function createCardForChart(area, stationId) {
+    area.append("<div id='history-chart"+stationId+"' class='row'><div class='col-xl-8'><div class='card'><div class='card-body'><div class='stat-widget-five'><div class='stat-icon dib flat-color-3'><i class='pe-7s-graph2'></i></div><div class='stat-content'><div class='text-left dib'><div class='stat-text'><span>History Chart</span></div><div class='stat-heading'>"+stationId+"</div></div></div></div><canvas id='historyChart"+stationId+"'></canvas></div></div></div></div>");
+
+    /*<!-- Line Chart -->
+    <div id="history-chart" class="row" >
+      <div class="col-xl-8">
+        <div class="card">
+          <div class="card-body">
+            <!-- Card header -->
+            <div class="stat-widget-five">
+              <div class="stat-icon dib flat-color-3">
+                <i class="pe-7s-graph2"></i>
+              </div>
+              <div class="stat-content">
+                <div class="text-left dib">
+                    <div class="stat-text"><span>History Chart</span></div>
+                    <div id="stationId-history" class="stat-heading">stationId</div>
+                </div>
+              </div>
+            </div>
+            <!-- /Card header -->
+            <canvas id="historyChart"></canvas>
+          </div>
+          <div id="real-time-pos-for-scrolling" class="card-body"></div> <!-- Just for scrolling properly -->
+        </div>
+      </div>
+    </div>
+    <!-- /Line Chart -->*/
+
+  }
+
+
+  // TODO
+  function drawLineChart(stationId, sensor, labelValues, dataValues) {
+    var color = "";
+
+    switch(sensor) {
+      case "temperature":
+        color = "#00c292";
+        break;
+      case "humidity":
+        color = "#5c6bc0";
+        break;
+      case "windDirection":
+        color = "#ab8ce4";
+        break;
+      case "windIntensity":
+        color = "#fb9678";
+        break;
+      case "rainHeight":
+        color = "#03a9f3";
+        break;
+      default:
+        color = 'rgb(255, 99, 132)';
+    }
+
+    //alert(labelValues);
+    //alert(dataValues);
+
+    //var canvas = $('historyChart'+stationId);
+    var canvas = document.getElementById('historyChart'+stationId);
+    var ctx = canvas.getContext('2d');
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: labelValues, //['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+            datasets: [{
+                label: sensor,
+                backgroundColor: color,
+                borderColor: color,
+                data: dataValues //[0, 10, 5, 2, 20, 30, 45, 35, 50]
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+          /*animation: {
+              onProgress: function(animation) {
+                  progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+              }
+          }*/
+        }
+
+    });
   }
 
 }
