@@ -28,6 +28,12 @@ body {
   display: none;
 }
 
+.measure {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
 .loader {
   border: 5px solid #f3f3f3; /* Light grey */
   border-top: 5px solid #000; /*#3498db;*/ /* Blue */
@@ -75,6 +81,7 @@ body {
   #space {
     display: none;
   }
+
 }
 
 /* For width 500px and smaller: */
@@ -91,6 +98,14 @@ body {
     -webkit-animation: spin 1.5s linear infinite; /* Safari */
     animation: spin 1.5s linear infinite;
   }
+
+  .measure {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      font-size: 0.9em;
+  }
+
 }
 
 /* Fade-in title with a delay compared to the logo */
@@ -229,14 +244,6 @@ body {
     0% { transform:  translate(0px,-40%)}
     100% { transform:  translate(0px,0%)}
   }
-}
-
-.measure {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    /*top: 60%;*/
-    /*margin-top: -10%;*/
 }
 
 

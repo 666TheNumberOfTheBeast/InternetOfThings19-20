@@ -8,8 +8,11 @@ window.onload = function init() {
   var btns       = document.getElementById("btns");
   var historyBtn = document.getElementById("historyBtn");
 
-  var historyBtnJQ = $("#historyBtn");
-  var historyChartJQ = $("#historyChart");
+  var historyBtnJQ    = $("#historyBtn");
+  var historyChartJQ  = $("#historyChart");
+  var historyChartXJQ = $("#historyXChart");
+  var historyChartYJQ = $("#historyYChart");
+  var historyChartZJQ = $("#historyZChart");
 
   var cloudBtnActivated   = false;
   var edgeBtnActivated    = false;
@@ -22,23 +25,34 @@ window.onload = function init() {
     if(!edgeBtnActivated)
       cloudBtnActivated == true ? up() : down();
     // Check if both buttons are activated and exclude the oldest
-    else if(cloudBtnActivated)
+    else if(cloudBtnActivated) {
       edgeBtnActivated = false;
+
+      // Remove history charts if present
+      if(historyBtnActivated) {
+        historyChartJQ.fadeOut();
+        historyBtnActivated = false;
+      }
+    }
   };
 
   document.getElementById("edgeBtn").onclick = function() {
     edgeBtnActivated = !edgeBtnActivated;
 
     // Check for animations
-    //if(edgeBtnActivated && !cloudBtnActivated)        up();
-    //else if(!cloudBtnActivated && !edgeBtnActivated)  down();
-
-    // Check for animations
     if(!cloudBtnActivated)
       edgeBtnActivated == true ? up() : down();
     // Check if both buttons are activated and exclude the oldest
-    else if(edgeBtnActivated)
+    else if(edgeBtnActivated) {
       cloudBtnActivated = false;
+
+      // Remove history charts if present
+      if(historyBtnActivated) {
+        historyChartJQ.fadeOut();
+        fadeOutCoordCharts();
+        historyBtnActivated = false;
+      }
+    }
   };
 
   function up() {
@@ -71,12 +85,39 @@ window.onload = function init() {
 
     historyBtnJQ.fadeOut(800);
 
+    // Remove history charts if present
+    if(historyBtnActivated) {
+      historyChartJQ.fadeOut();
+      fadeOutCoordCharts();
+      historyBtnActivated = false;
+    }
+
     stop();
   }
 
   historyBtn.onclick = function () {
     historyBtnActivated = !historyBtnActivated;
-    historyBtnActivated ? getLastHourDataFromDB() : historyChartJQ.fadeOut();
+
+    if(historyBtnActivated) getLastHourDataFromDB()
+    else {
+      scrollTo("#btns");
+      historyChartJQ.fadeOut();
+      fadeOutCoordCharts();
+    }
+
+  }
+
+  // Coord charts are drawn only with Cloud Computing
+  function fadeInCoordCharts() {
+    historyChartXJQ.fadeIn();
+    historyChartYJQ.fadeIn();
+    historyChartZJQ.fadeIn();
+  }
+
+  function fadeOutCoordCharts() {
+    historyChartXJQ.fadeOut();
+    historyChartYJQ.fadeOut();
+    historyChartZJQ.fadeOut();
   }
   // End buttons handling
 
@@ -85,7 +126,7 @@ window.onload = function init() {
   var measureTextJQ = $("#measure");
   var loader = document.getElementById("loader");
   var values = [];
-  var fired = false;
+  var fired  = false;
 
   // Direct usage of IAM credentials
   /*var host = "<endpoint>", region = "<region>";
@@ -112,17 +153,25 @@ window.onload = function init() {
       var host       = "a194ad8wufud1k-ats.iot.us-east-1.amazonaws.com";
       var requestUrl = SigV4Utils.getSignedUrl(host, AWS.config.region, AWS.config.credentials);
       mqttClient     = new PahoMQTTClient(requestUrl, uuid);
-      mqttClient.conn(callback);
+      mqttClient.conn(callbackConnection, callbackReceive);
   });
 
   var docClient = new AWS.DynamoDB.DocumentClient();
 
-  // Callback for the MQTT client
-  function callback() {
+  // Callback for the MQTT client connection
+  function callbackConnection() {
     fired = true;
     // Check if the callback is invoked after that a button is pressed (slow connection)
     if(cloudBtnActivated || edgeBtnActivated)
       main();
+  }
+
+  // Callback for the MQTT client when a message is received after subscription
+  function callbackReceive(msg) {
+    if(!cloudBtnActivated)  return;
+
+    msg = JSON.parse(msg);
+    setMeasureText('x: ' + msg.x + '<br>y: ' + msg.y + '<br>z: ' + msg.z + "<br>" + (msg.isStanding ? "you're standing" : "you're moving"));
   }
 
   // Function to invoke when a button is activated and the translate up movement is performed.
@@ -173,6 +222,9 @@ window.onload = function init() {
       // DEBUG
       //mqttClient.sub("sensor/accelerometer/+");
       //mqttClient.pub("hi all", topic);
+
+      // For cloud computing
+      mqttClient.sub("sensor/accelerometer/cloud-computing-response/" + uuid);
 
       // Read once per second
       accelerometer = new Accelerometer({ frequency: 1 });
@@ -234,10 +286,14 @@ window.onload = function init() {
       measureTextJQ.fadeIn(800);
       loader.style.display = "none";
 
-      $('html, body').animate({
-            scrollTop: $("#measure").offset().top - 70
-        }, 500);
+      scrollTo("#measure");
     }
+  }
+
+  function scrollTo(elem) {
+    $('html, body').animate({
+          scrollTop: $(elem).offset().top - 70
+      }, 500);
   }
 
   // Check if the user is standing (do side effect on values array removing the old element)
@@ -253,16 +309,17 @@ window.onload = function init() {
   function createJsonString(obj) {
     // Edge-based Deployment
     if(typeof obj == "boolean")
-      return "{ \"uuid\":\"" + uuid + "\", \"datetime\": \"" + getDateTime() + "\", \"isStanding\": \"" + obj + "\" }";
+      return "{ \"clientID\":\"" + uuid + "\", \"dateTime\": \"" + getDateTime()[0] + "\", \"isStanding\": \"" + obj + "\" }";
 
     // Cloud-based Deployment
     else if(obj instanceof Array) {
-      var s = "{ \"uuid\":\"" + uuid + "\", \"datetime\": \"" + getDateTime() + "\"";
+      var s = "{ \"clientID\":\"" + uuid + "\", \"dateTime\": \"" + getDateTime()[0] + "\"";
 
+      // obj[0] older than obj[1]
       var elem = obj[0];
-      s += ", \"beforeX\":\"" + elem.x + "\", \"beforeY\":\"" + elem.y + "\", \"beforeZ\":\"" + elem.z + "\"";
+      s += ", \"x1\":" + elem.x + ", \"y1\":" + elem.y + ", \"z1\":" + elem.z;
       elem = obj[1];
-      s += ", \"nowX\":\"" + elem.x + "\", \"nowY\":\"" + elem.y + "\", \"nowZ\":\"" + elem.z + "\"";
+      s += ", \"x2\":" + elem.x + ", \"y2\":" + elem.y + ", \"z2\":" + elem.z;
 
       return s + " }";
     }
@@ -278,7 +335,7 @@ window.onload = function init() {
     return uuid;
   }
 
-  // Return current dateTime
+  // Return current dateTime and the dateTime of 1 hour ago
   function getDateTime() {
     var now     = new Date();
     var year    = now.getFullYear();
@@ -295,7 +352,14 @@ window.onload = function init() {
     second = getTwoDigits(second);
 
     var dateTime = day+'-'+month+'-'+year+' '+hour+':'+minute+':'+second;
-    return dateTime;
+    var dateTimeOneHourAgo = "";
+
+    if(hour == 0)
+      dateTimeOneHourAgo = getTwoDigits(day-1)+'-'+month+'-'+year+' 23:'+minute+':'+second;
+    else
+      dateTimeOneHourAgo = day+'-'+month+'-'+year+' '+getTwoDigits(hour-1)+':'+minute+':'+second;
+
+    return [dateTime, dateTimeOneHourAgo];
   }
 
   // Return a two digits string (assuming I pass only positive values of at most two digits)
@@ -306,54 +370,63 @@ window.onload = function init() {
       return number;
   }
 
-  // TODO
   // Query the DB to get values received during the last hour of the activated button
   // Se non funziona between allora usare formato data 2015-12-21T17:42:34Z
   function getLastHourDataFromDB() {
     console.log("Querying for last hour values...\n");
+    loader.style.display = "initial";
 
     var dateTime = getDateTime();
     var params = {
-      TableName : "VirtualEnvironmentStationsDB",
-      ProjectionExpression: "Id, #dt, Payload",
+      TableName : "AccelerometerWebAppDB",
+      ProjectionExpression: cloudBtnActivated ? "clientID, #dt, x, y, z, isStanding" : "clientID, #dt, isStanding",
+      KeyConditionExpression: "clientID = :clientID and #dt between :start_h and :end_h",
+      FilterExpression: "computation = :computation",
       ExpressionAttributeNames:{
           "#dt": "dateTime"
       },
-      FilterExpression: "#dt between :start_h and :end_h",
       ExpressionAttributeValues: {
-          ":start_h": dateTime[1],
-          ":end_h": dateTime[0],
+          ":clientID": uuid,
+          ":start_h":  dateTime[1],
+          ":end_h":    dateTime[0],
+          ":computation": cloudBtnActivated ? "cloud" : "edge"
       }
     };
 
-    docClient.scan(params, onScan);
+    docClient.query(params, onQuery);
 
-    function onScan(err, data) {
+    function onQuery(err, data) {
         if (err) {
-            console.log("Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2));
+            console.log("Unable to query the table: " + "\n" + JSON.stringify(err, undefined, 2));
+            historyBtnActivated = false;
+            loader.style.display = "none";
         } else {
             // Print all the values
-            console.log("Scanning succeeded.\n");
+            console.log("Querying succeeded.\n");
 
-            // Map where to store station objects
-            var stations = new Map();
+            var sensorValues = [];
+            var dateTimes = [];
 
-            data.Items.forEach(function(stationData) {
-                var value = stations.get(stationData.Id);
+            // Additional arrays for cloud computing
+            var xValues = [];
+            var yValues = [];
+            var zValues = [];
 
-                if (value == undefined) {
-                  // Object to associate each stationId with two array of values
-                  var station = {id:"", sensorValues:[], dateTimes:[]};
-
-                  station.sensorValues.push(stationData.Payload[sensor]);
-                  station.dateTimes.push(stationData.dateTime);
-                  stations.set(stationData.Id, station);
-                }
-                else {
-                  value.sensorValues.push(stationData.Payload[sensor]);
-                  value.dateTimes.push(stationData.dateTime);
-                }
-            });
+            // Check if cloud computing
+            if(cloudBtnActivated)
+              data.Items.forEach(function(data) {
+                    sensorValues.push(data.isStanding == "true" ? 0 : 1);
+                    // DynamoDB does not support float type so, in the table, the value is stored as string
+                    xValues.push(parseFloat(data.x));
+                    yValues.push(parseFloat(data.y));
+                    zValues.push(parseFloat(data.z));
+                    dateTimes.push(data.dateTime);
+              });
+            else
+              data.Items.forEach(function(data) {
+                    sensorValues.push(data.isStanding == "true" ? 0 : 1);
+                    dateTimes.push(data.dateTime);
+              });
 
             // Continue scanning if we have more data (per scan 1MB limitation)
             if (typeof data.LastEvaluatedKey != "undefined") {
@@ -362,25 +435,34 @@ window.onload = function init() {
             }
 
             // Clean area where to put the new charts
-            var area = $("#history-charts");
-            area.html("");
+            //historyChartJQ.html("");
 
-            var isEmpty = true;
+            loader.style.display = "none";
 
-            // Draw a chart for each station
-            for (let [key, value] of stations.entries()) {
-              //console.log('key is ' + key + ', value is ' + value);
-              createCardForChart(area, key);
-              drawLineChart(key, sensor, value.dateTimes, value.sensorValues);
-              isEmpty = false;
+            if (sensorValues.length == 0) {
+              historyBtnActivated = false;
+              // Trick to avoid to display the loader when the alert is shown
+              setTimeout(function() {
+                alert("No data sent in the past hour");
+              }, 100);
             }
-
-            if (isEmpty)
-              alert("No station sent data in the past hour");
             else {
+              historyChartJQ.fadeIn();
+
+              if(cloudBtnActivated) {
+                fadeInCoordCharts();
+
+                drawLineChart(dateTimes, sensorValues, "historyChart", "Activity Cloud Computing");
+                drawLineChart(dateTimes, xValues, "historyXChart", "x Cloud Computing");
+                drawLineChart(dateTimes, yValues, "historyYChart", "y Cloud Computing");
+                drawLineChart(dateTimes, zValues, "historyZChart", "z Cloud Computing");
+              }
+              else
+                drawLineChart(dateTimes, sensorValues, "historyChart", "Activity Edge Computing");
+
               //Set a timeout waiting for the creation of the new elements
               setTimeout(function() {
-                window.location = "#history-chart-pos-for-scrolling";
+                scrollTo(historyChartJQ);
               },
               500);
             }
@@ -388,83 +470,64 @@ window.onload = function init() {
     }
   }
 
-  // TODO
-  function createCardForChart(area, stationId) {
-    area.append("<div id='history-chart"+stationId+"' class='row'><div class='col-xl-8'><div class='card'><div class='card-body'><div class='stat-widget-five'><div class='stat-icon dib flat-color-3'><i class='pe-7s-graph2'></i></div><div class='stat-content'><div class='text-left dib'><div class='stat-text'><span>History Chart</span></div><div class='stat-heading'>"+stationId+"</div></div></div></div><canvas id='historyChart"+stationId+"'></canvas></div></div></div></div>");
-
-    /*<!-- Line Chart -->
-    <div id="history-chart" class="row" >
-      <div class="col-xl-8">
-        <div class="card">
-          <div class="card-body">
-            <!-- Card header -->
-            <div class="stat-widget-five">
-              <div class="stat-icon dib flat-color-3">
-                <i class="pe-7s-graph2"></i>
-              </div>
-              <div class="stat-content">
-                <div class="text-left dib">
-                    <div class="stat-text"><span>History Chart</span></div>
-                    <div id="stationId-history" class="stat-heading">stationId</div>
-                </div>
-              </div>
-            </div>
-            <!-- /Card header -->
-            <canvas id="historyChart"></canvas>
-          </div>
-          <div id="real-time-pos-for-scrolling" class="card-body"></div> <!-- Just for scrolling properly -->
-        </div>
-      </div>
-    </div>
-    <!-- /Line Chart -->*/
-
-  }
-
-
-  // TODO
-  function drawLineChart(stationId, sensor, labelValues, dataValues) {
-    var color = "";
-
-    switch(sensor) {
-      case "temperature":
-        color = "#00c292";
-        break;
-      case "humidity":
-        color = "#5c6bc0";
-        break;
-      case "windDirection":
-        color = "#ab8ce4";
-        break;
-      case "windIntensity":
-        color = "#fb9678";
-        break;
-      case "rainHeight":
-        color = "#03a9f3";
-        break;
-      default:
-        color = 'rgb(255, 99, 132)';
-    }
-
-    //alert(labelValues);
-    //alert(dataValues);
-
-    //var canvas = $('historyChart'+stationId);
-    var canvas = document.getElementById('historyChart'+stationId);
+  function drawLineChart(labelValues, dataValues, canvasId, label) {
+    var canvas = document.getElementById(canvasId);
     var ctx = canvas.getContext('2d');
+
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var chart = new Chart(ctx, {
+
+    if(canvasId == "historyChart")
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: labelValues,
+              datasets: [{
+                  label: label,
+                  backgroundColor: '#4aca85',
+                  borderColor: '#4aca85',
+                  data: dataValues
+              }]
+          },
+
+          // Configuration options go here
+          options: {
+            scales: {
+              yAxes: [{
+                  ticks: {
+                      // Include a dollar sign in the ticks
+                      callback: function(value, index, values) {
+                          if(value == 1)        return "is moving";
+                          else if(value == 0)   return "is standing";
+                          else                  return "";
+                      }
+                  }
+              }]
+            }
+            /*animation: {
+                onProgress: function(animation) {
+                    progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+                }
+            }*/
+          }
+
+      });
+    else
+      var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
 
         // The data for our dataset
         data: {
-            labels: labelValues, //['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+            labels: labelValues,
             datasets: [{
-                label: sensor,
-                backgroundColor: color,
-                borderColor: color,
-                data: dataValues //[0, 10, 5, 2, 20, 30, 45, 35, 50]
+                label: label,
+                backgroundColor: '#4aca85',
+                borderColor: '#4aca85',
+                data: dataValues
             }]
         },
 
@@ -477,7 +540,7 @@ window.onload = function init() {
           }*/
         }
 
-    });
+      });
   }
 
 }

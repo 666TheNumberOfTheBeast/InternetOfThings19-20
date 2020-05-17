@@ -10,7 +10,7 @@ class PahoMQTTClient {
   }
 
   // Connect to the
-  conn(callback) {
+  conn(callbackConnection, callbackReceive) {
     this.client = new Paho.MQTT.Client(this.requestUrl, this.clientId);
 
     var connectOptions = {
@@ -20,7 +20,7 @@ class PahoMQTTClient {
         // With an arrow function "this" represents the owner of the function
         // while with a regular function "this" represents the object that calls the function
         this.isConnected = true;
-        callback();
+        callbackConnection();
       },
       useSSL: true,
       timeout: 3,
@@ -28,7 +28,7 @@ class PahoMQTTClient {
       onFailure: function() {
         // Connect failed
         console.log("onFailure: connect failed");
-        callback();
+        callbackConnection();
       }
     };
 
@@ -49,12 +49,13 @@ class PahoMQTTClient {
     // Called when a message arrives
     function onMessageArrived(message) {
       console.log("onMessageArrived:" + message.payloadString);
+      callbackReceive(message.payloadString);
     }
 
   }
 
   // Subscribe to a topic
-  sub(topic) {
+  sub(topic, callbackReceive) {
     console.log("Subscribing on topic " + topic);
     this.client.subscribe(topic);
   }

@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
   <meta name="description" content="App of the Internet of Things 19-20 course @ Sapienza University of Rome">
-  <meta name="theme-color" content="#0071c5">
   <!-- Origin Trial Token, feature = Generic Sensors, origin = https://intel.github.io, expires = 2018-02-27 -->
 	<meta name="keywords" content="" />
 	<meta name="author" content="666TheNumberOfTheBeast" />
@@ -14,6 +13,7 @@
 
   <script src="js/main.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
   <script src="js/aws.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
@@ -30,7 +30,7 @@
     </div>
 
     <div id="space">
-      <br><br>
+      <br>
     </div>
 
     <p id="btns" class="buttonsAnimation">
@@ -46,7 +46,13 @@
 
   <div id="loader" class="loader hide"></div>
   <p id="measure" class="measure"></p>
-  <div id="historyChart" ></div>
+
+  <div>
+    <canvas id="historyChart" class="hide"></canvas>
+    <canvas id="historyXChart" class="hide"></canvas>
+    <canvas id="historyYChart" class="hide"></canvas>
+    <canvas id="historyZChart" class="hide"></canvas>
+  </div>
 
 </body>
 </html>
