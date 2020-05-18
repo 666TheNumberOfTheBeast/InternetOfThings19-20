@@ -300,8 +300,7 @@ window.onload = function init() {
   function isStanding(now) {
     var before = values.shift();
     //var threshold = 0.25;
-    // TODO
-    if((now.x - before.x > 0.3) /*|| (now.y - before.y > 0.23) || (now.z - before.z > 0.25)*/)
+    if((Math.abs(now.x - before.x) > 0.285) || (Math.abs(now.y - before.y > 0.112)) || (Math.abs(now.z - before.z > 0.235)))
       return false;
     return true;
   }
@@ -452,13 +451,13 @@ window.onload = function init() {
               if(cloudBtnActivated) {
                 fadeInCoordCharts();
 
-                drawLineChart(dateTimes, sensorValues, "historyChart", "Activity Cloud Computing");
-                drawLineChart(dateTimes, xValues, "historyXChart", "x Cloud Computing");
-                drawLineChart(dateTimes, yValues, "historyYChart", "y Cloud Computing");
-                drawLineChart(dateTimes, zValues, "historyZChart", "z Cloud Computing");
+                drawLineChart(dateTimes, sensorValues, "historyCanvas", "Activity Cloud Computing");
+                drawLineChart(dateTimes, xValues, "historyXCanvas", "x Cloud Computing");
+                drawLineChart(dateTimes, yValues, "historyYCanvas", "y Cloud Computing");
+                drawLineChart(dateTimes, zValues, "historyZCanvas", "z Cloud Computing");
               }
               else
-                drawLineChart(dateTimes, sensorValues, "historyChart", "Activity Edge Computing");
+                drawLineChart(dateTimes, sensorValues, "historyCanvas", "Activity Edge Computing");
 
               //Set a timeout waiting for the creation of the new elements
               setTimeout(function() {
@@ -477,7 +476,7 @@ window.onload = function init() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if(canvasId == "historyChart")
+    if(canvasId == "historyCanvas")
       var chart = new Chart(ctx, {
           // The type of chart we want to create
           type: 'line',
@@ -543,4 +542,9 @@ window.onload = function init() {
       });
   }
 
+  // DEBUG
+  /*drawLineChart([getDateTime()[0], getDateTime()[0], getDateTime()[0], getDateTime()[0]], [1,1,0,0,1], "historyCanvas", "Activity Cloud Computing");
+  drawLineChart(["1", "2", "3", "4"], [1,1,0,0,1], "historyXCanvas", "x Cloud Computing");
+  drawLineChart(["1", "2", "3", "4"], [1,1,0,0,1], "historyYCanvas", "y Cloud Computing");
+  drawLineChart(["1", "2", "3", "4"], [1,1,0,0,1], "historyZCanvas", "z Cloud Computing");//*/
 }
