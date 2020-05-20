@@ -1,7 +1,6 @@
 "use strict";
 
 window.onload = function init() {
-
   // Buttons handling
   var container  = document.getElementById("container");
   var intro      = document.getElementById("intro");
@@ -28,6 +27,10 @@ window.onload = function init() {
     else if(cloudBtnActivated) {
       edgeBtnActivated = false;
 
+      // Clean text and start loading
+      setMeasureText("");
+      loading();
+
       // Remove history charts if present
       if(historyBtnActivated) {
         historyChartJQ.fadeOut();
@@ -45,6 +48,10 @@ window.onload = function init() {
     // Check if both buttons are activated and exclude the oldest
     else if(edgeBtnActivated) {
       cloudBtnActivated = false;
+
+      // Clean text and start loading
+      setMeasureText("");
+      loading();
 
       // Remove history charts if present
       if(historyBtnActivated) {
@@ -171,7 +178,7 @@ window.onload = function init() {
     if(!cloudBtnActivated)  return;
 
     msg = JSON.parse(msg);
-    setMeasureText('x: ' + msg.x + '<br>y: ' + msg.y + '<br>z: ' + msg.z + "<br>" + (msg.isStanding ? "you're standing" : "you're moving"));
+    setMeasureText('x: ' + msg.x + '<br>y: ' + msg.y + '<br>z: ' + msg.z + "<br>" + (msg.isStanding ? "You're standing" : "You're moving"));
   }
 
   // Function to invoke when a button is activated and the translate up movement is performed.
@@ -256,9 +263,9 @@ window.onload = function init() {
     if(edgeBtnActivated && values.length > 1) {
       var check = isStanding(now);
       if(check)
-        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>you're standing");
+        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>You're standing");
       else
-        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>you're moving");
+        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>You're moving");
 
       mqttClient.pub(createJsonString(check), topic);
     }
@@ -274,17 +281,19 @@ window.onload = function init() {
 
   function setMeasureText(text) {
     if(measureText == null)   return;
-    if(text == "")
-      measureTextJQ.fadeOut(320);
+    if(text == "") {
+      measureTextJQ.fadeOut(800);
+    }
 
     measureText.innerHTML = text;
 
     // Check if scrolling is necessary
     if(firstSetMeasureCall) {
       firstSetMeasureCall = false;
+      loader.style.display = "none";
+
       //historyBtnJQ.fadeIn(800);
       measureTextJQ.fadeIn(800);
-      loader.style.display = "none";
 
       scrollTo("#measure");
     }
@@ -299,16 +308,18 @@ window.onload = function init() {
   // Check if the user is standing (do side effect on values array removing the old element)
   function isStanding(now) {
     var before = values.shift();
-    //var threshold = 0.25;
-    if((Math.abs(now.x - before.x) > 0.285) || (Math.abs(now.y - before.y > 0.112)) || (Math.abs(now.z - before.z > 0.235)))
+
+    // One decides for all
+    if((Math.abs(now.x - before.x)*0.67 > 0.292 /*0.285*/) || (Math.abs(now.y - before.y)*0.7 > 0.145 /*0.112*/) || (Math.abs(now.z - before.z)*0.67 > 0.45 /*0.235)*/))
       return false;
+
     return true;
   }
 
   function createJsonString(obj) {
     // Edge-based Deployment
     if(typeof obj == "boolean")
-      return "{ \"clientID\":\"" + uuid + "\", \"dateTime\": \"" + getDateTime()[0] + "\", \"isStanding\": \"" + obj + "\" }";
+      return "{ \"clientID\":\"" + uuid + "\", \"dateTime\": \"" + getDateTime()[0] + "\", \"isStanding\":"  + obj + " }";
 
     // Cloud-based Deployment
     else if(obj instanceof Array) {
@@ -414,7 +425,7 @@ window.onload = function init() {
             // Check if cloud computing
             if(cloudBtnActivated)
               data.Items.forEach(function(data) {
-                    sensorValues.push(data.isStanding == "true" ? 0 : 1);
+                    sensorValues.push(data.isStanding ? 0 : 1);
                     // DynamoDB does not support float type so, in the table, the value is stored as string
                     xValues.push(parseFloat(data.x));
                     yValues.push(parseFloat(data.y));
@@ -423,7 +434,7 @@ window.onload = function init() {
               });
             else
               data.Items.forEach(function(data) {
-                    sensorValues.push(data.isStanding == "true" ? 0 : 1);
+                    sensorValues.push(data.isStanding ? 0 : 1);
                     dateTimes.push(data.dateTime);
               });
 
@@ -505,7 +516,24 @@ window.onload = function init() {
                       }
                   }
               }]
-            }
+            },
+
+            plugins: {
+    					zoom: {
+                pan: {
+                   enabled: true,
+                   mode: 'x',
+                   speed: 2
+                },
+    						zoom: {
+    							enabled: true,
+    							mode: 'x',
+							    speed: 0.3
+    						}
+    					}
+    				}
+
+
             /*animation: {
                 onProgress: function(animation) {
                     progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
@@ -543,7 +571,8 @@ window.onload = function init() {
   }
 
   // DEBUG
-  /*drawLineChart([getDateTime()[0], getDateTime()[0], getDateTime()[0], getDateTime()[0]], [1,1,0,0,1], "historyCanvas", "Activity Cloud Computing");
+  /*historyChart.style.display = "initial";
+  drawLineChart([getDateTime()[0], getDateTime()[0], getDateTime()[0], getDateTime()[0]], [1,1,0,0,1], "historyCanvas", "Activity Cloud Computing");
   drawLineChart(["1", "2", "3", "4"], [1,1,0,0,1], "historyXCanvas", "x Cloud Computing");
   drawLineChart(["1", "2", "3", "4"], [1,1,0,0,1], "historyYCanvas", "y Cloud Computing");
   drawLineChart(["1", "2", "3", "4"], [1,1,0,0,1], "historyZCanvas", "z Cloud Computing");//*/

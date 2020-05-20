@@ -68,7 +68,37 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* For height 500px and smaller: */
+/* For width 500px and smaller */
+@media only screen and (max-width: 500px) {
+  .loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #000; /*#3498db;*/ /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 80%;
+    left: 43%;
+    -webkit-animation: spin 1.5s linear infinite; /* Safari */
+    animation: spin 1.5s linear infinite;
+  }
+
+  .measure {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      font-size: 0.9em;
+  }
+
+  .chart {
+    margin: auto;
+    width: 98%;
+    text-align: left;
+  }
+
+}
+
+/* For height 500px and smaller */
 @media only screen and (max-height: 500px) {
   .logo {
     max-width: 15%;
@@ -100,10 +130,10 @@ body {
 
 }
 
-/* For width 500px and smaller: */
-@media only screen and (max-width: 500px) {
+/* For height between 350px and 500px and width 500px and smaller */
+@media only screen and (max-width: 500px) and (min-height: 350px) and (max-height: 500px) {
   .loader {
-    border: 5px solid #f3f3f3; /* Light grey */
+    border: 5px solid #f3f3f3;*/ /* Light grey */
     border-top: 5px solid #000; /*#3498db;*/ /* Blue */
     border-radius: 50%;
     width: 40px;
@@ -126,6 +156,10 @@ body {
     margin: auto;
     width: 98%;
     text-align: left;
+  }
+
+  #space {
+    display: initial;
   }
 
 }
@@ -268,6 +302,17 @@ body {
   }
 }
 
+@media only screen and (max-width: 350px) and (max-height: 350px) {
+  @keyframes translateBtnUpAnimation {
+    100% { transform:  translate(0px,-20%)}
+  }
+
+  @keyframes translateBtnDownAnimation {
+    0% { transform:  translate(0px,-20%)}
+    100% { transform:  translate(0px,0%)}
+  }
+}
+
 
 /* Import */
 .stat-widget-five {
@@ -338,10 +383,6 @@ body {
   }
 
 }
-
-
-
-
 
 
 /* Import from Bootstrap */

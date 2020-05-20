@@ -9,7 +9,7 @@ class PahoMQTTClient {
     this.isConnected = false;
   }
 
-  // Connect to the
+  // Connect to the server
   conn(callbackConnection, callbackReceive) {
     this.client = new Paho.MQTT.Client(this.requestUrl, this.clientId);
 
@@ -55,7 +55,7 @@ class PahoMQTTClient {
   }
 
   // Subscribe to a topic
-  sub(topic, callbackReceive) {
+  sub(topic) {
     console.log("Subscribing on topic " + topic);
     this.client.subscribe(topic);
   }
