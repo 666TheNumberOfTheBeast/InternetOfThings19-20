@@ -263,9 +263,9 @@ window.onload = function init() {
     if(edgeBtnActivated && values.length > 1) {
       var check = isStanding(now);
       if(check)
-        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>You're standing");
+        setMeasureText(/*'x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>*/"You're standing");
       else
-        setMeasureText('x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>You're moving");
+        setMeasureText(/*'x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>*/"You're moving");
 
       mqttClient.pub(createJsonString(check), topic);
     }
@@ -310,7 +310,11 @@ window.onload = function init() {
     var before = values.shift();
 
     // One decides for all
-    if((Math.abs(now.x - before.x)*0.67 > 0.292 /*0.285*/) || (Math.abs(now.y - before.y)*0.7 > 0.145 /*0.112*/) || (Math.abs(now.z - before.z)*0.67 > 0.45 /*0.235)*/))
+  //if((Math.abs(now.x - before.x) > 0.285) || (Math.abs(now.y - before.y) >*0.112) || (Math.abs(now.z - before.z) > 0.235)))
+
+    if((Math.abs(now.x - before.x)*0.67 > 0.292 /*0.285*/)
+        || (Math.abs(now.y - before.y)*0.7 > 0.145 /*0.112*/)
+        || (Math.abs(now.z - before.z)*0.67 > 0.45 /*0.235)*/))
       return false;
 
     return true;
@@ -558,13 +562,21 @@ window.onload = function init() {
             }]
         },
 
-        // Configuration options go here
         options: {
-          /*animation: {
-              onProgress: function(animation) {
-                  progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+          plugins: {
+            zoom: {
+              pan: {
+                 enabled: true,
+                 mode: 'x',
+                 speed: 2
+              },
+              zoom: {
+                enabled: true,
+                mode: 'x',
+                speed: 0.3
               }
-          }*/
+            }
+          }
         }
 
       });
