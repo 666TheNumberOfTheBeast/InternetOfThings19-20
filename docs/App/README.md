@@ -36,8 +36,8 @@ The [web app](https://666thenumberofthebeast.github.io/InternetOfThings19-20/App
 - One for the last hour values of the chosen computation
 
 # Extra
-[Demo](https://youtu.be/Bl5EqkK0KrA) of the system.
-[Blog Post](https://www.hackster.io/xmetal1997/iot-virtual-environment-stations-emulator-4fc78b) where you can find a hands-on tutorial on how to reproduce the system.
+[Demo](https://www.youtube.com/watch?v=F51n_hRgXw4) of the system.  
+[Blog Post](https://www.hackster.io/xmetal1997/iot-human-activity-recognition-web-app-45402d) where you can find a hands-on tutorial on how to reproduce the system.
 
 [Assignment 1](https://github.com/666TheNumberOfTheBeast/InternetOfThings19-20/tree/master/Assignment1)
 

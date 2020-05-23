@@ -260,7 +260,7 @@ window.onload = function init() {
     }
 
     // Edge-based Deployment
-    if(edgeBtnActivated && values.length > 1) {
+    else if(edgeBtnActivated && values.length > 1) {
       var check = isStanding(now);
       if(check)
         setMeasureText(/*'x: ' + event.target.x + '<br>y: ' + event.target.y + '<br>z: ' + event.target.z + "<br>*/"You're standing");

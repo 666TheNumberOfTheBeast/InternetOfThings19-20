@@ -5,7 +5,7 @@ All the code is contained into:
  - *AssignmentX* folders (one for each of the first three assignments)
  - *docs* folder (for the website)
 
-The *docs* folder includes the code for the **web app** in the *App* folder and the **dashboard** in the *Dashboard* folder.  
+The *docs* folder includes the code for the **web app** in the [App](https://github.com/666TheNumberOfTheBeast/InternetOfThings19-20/tree/master/docs/App) folder and the **dashboard** in the [Dashboard](https://github.com/666TheNumberOfTheBeast/InternetOfThings19-20/tree/master/docs/Dashboard) folder.  
 
 Visit the [website](https://666thenumberofthebeast.github.io/InternetOfThings19-20/) to try my work.
 
